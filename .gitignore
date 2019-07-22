@@ -1,0 +1,5 @@
+markit/config.py
+markit/__pycache__/*
+*.pyc
+*~
+goorm.manifest
