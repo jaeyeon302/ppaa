@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+<div class="flex-col-container f-middle">
+	<h1 class="logo mb-3">
+		{%block title %}Profile{%endblock%}
+	</h1>
+	<form method="post" class="flex-col-container">
+		<div class="flex-row-container mb-1">
+			 <label class="lv3-font mr-2" for="username">username</label>
+			<input class="lv3-font round-box" type="text" name='username' id='username' required>
+		</div>
+		<div class="flex-row-container mb-1">
+			 <label class="lv3-font mr-2" for="old-pw">old password</label>
+			<input class="lv3-font round-box" type='password' id='old-pw' name='old-pw' required>
+		</div>
+		<div class="flex-row-container mb-1">
+			 <label class="lv3-font mr-2" for="new-pw">new password</label>
+			<input class="lv3-font round-box" type='password' id='new-pw' name='new-pw' required>
+		</div>
+		<div class="flex-row-container mb-1">
+			 <label class="lv3-font mr-2" for="new-pw-confirm">confirm new password</label>
+			<input class="lv3-font round-box" type='password' id='new-pw-cofirm' name='new-pw-confirm' required>
+		</div>	
+		<input class="lv3-font f-right btn mr-0 "type='submit' value='Update'>
+	</form>
+</div>
+{% endblock %}

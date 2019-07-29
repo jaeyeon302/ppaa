@@ -3,3 +3,5 @@ markit/__pycache__/*
 *.pyc
 *~
 goorm.manifest
+
+instance/*

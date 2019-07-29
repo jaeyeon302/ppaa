@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+	<title>
+	markit - {%block title%}{%endblock%}
+	</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='style_test.css')}}">
+</head>
+
+<body class="flex-row-container">
+	<nav class="fixed-top pl-3 pr-3 pt-2 pb-2 white-bg flex-row-container">
+		<div class='logo'>
+			<a href="/">mark-it	</a>
+		</div>
+		<div class="f-right thm-font">
+			{% if g.user %}
+			<div class="inline btn">
+				<a href="{{ url_for('auth.logout')}}">Log Out</a>
+			</div>
+			<div class="inline btn deep-green-bg white-font">
+				 <a href="{{ url_for('auth.configure')}}">Profile</a>
+			</div>
+			{% else %}
+			<div class="inline btn">
+				<a href="{{url_for('auth.login')}}">Log In</a>	
+			</div>
+			<div class="inline btn deep-green-bg white-font">
+				<a href="{{url_for('auth.register')}}">Register</a>
+			</div>
+			{% endif %}
+		</div>
+	</nav>
+
+	<section class="content pt-7 flex-col-container">
+		<header>
+			{%block header %}{% endblock %}
+		</header>
+		{%for msg in get_flashed_messages() %}
+		<div class="flash lv1-font">
+			{{msg}}
+		</div>
+		{% endfor %}
+		{%block content%}{% endblock %}
+	</section>
+</body>

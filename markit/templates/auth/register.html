@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block header %}
+	
+{% endblock %}
+
+{% block content %}
+<div class="flex-col-container f-middle">
+	<h1 class="logo mb-3">{% block title %}Register{% endblock %}</h1>
+	<form method='post' class="flex-col-container">
+		<div class="flex-row-container mb-1">
+			<label class="lv3-font" for="username">Username</label>
+			<input class="lv3-font round-box" type='text' name='username' id='username' required>
+		</div>
+		<div class="flex-row-container mb-1">
+			<label class="lv3-font" for="email">Email</label>
+			<input class="lv3-font round-box" type="email" name='email' id='email' required>
+		</div>
+		<div class="flex-row-container mb-1">
+			<label class="lv3-font" for="pw">Password</label>
+			<input class="lv3-font round-box" type='password' id='pw' name='pw' required>
+		</div>
+		<div class="flex-row-container mb-1">
+			<label class="lv3-font" for="pw-confirm">Confirm password</label>
+			<input class="lv3-font round-box" type='password' id='pw-confirm' name='pw-confirm' required>
+		</div>		
+		<input class="lv3-font f-right btn mr-0" type='submit' value='Create New Account'>
+	</form>
+</div>
+
+{% endblock %}

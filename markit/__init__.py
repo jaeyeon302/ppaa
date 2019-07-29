@@ -1,5 +1,7 @@
+
 from flask import Flask
 from markit.config import set_config
+import os
 
 def create_app(test_config=None):
 	app = Flask(__name__,instance_relative_config=True)
@@ -14,11 +16,14 @@ def create_app(test_config=None):
 	if not os.path.isdir(app.instance_path):
 		os.mkdir(app.instance_path)
 		db.init_db(app)
-	db .init_app(app)
+	db.init_app(app)
 	
 	#register blueprints
 	from . import auth
 	app.register_blueprint(auth.bp)
+	
+	from . import mark
+	app.register_blueprint(mark.bp)
 	
 	
 	return app
