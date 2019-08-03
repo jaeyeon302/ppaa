@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<div class="flex-col-container f-middle">
+	<div class="account">
 		<h1 class='logo mb-3'>{% block title %}Log in{% endblock %}</h1>
-		<form method='post' class="flex-col-container">
-			<div class="mb-2 f-left">
-				 <div class="lv2-font mb-1">Email</div>
-				<input class="lv3-font round-box" type="email" name='email' id='email' required placeholder="e.g., park@jaeyeon.com">
+		<form method='post'>
+			<label class="lv2-font">Email</label>
+			<div class="user-attr-container">
+				<input class="user-attr lv3-font round-box" type="email" name='email' id='email' required placeholder="e.g., park@jaeyeon.com">
 			</div>
-			<div class="mb-2 f-left">
-				 <div class="lv2-font mb-1">password</div>
-				<input class="lv3-font round-box"type='password' id='pw' name='pw' required placeholder='e.g., password you can remember'>
+			<label class="lv2-font">password</label>
+			<div class="user-attr-container">
+				<input class="user-attr lv3-font round-box"type='password' id='pw' name='pw' required placeholder='e.g., something only you know'>
 			</div>	
-			<input class="lv3-font f-right btn mr-0" type='submit' value='Log In'>
+			<input class="lv3-font btn" type='submit' value='Log In'>
 		</form>
 	</div>
 {% endblock %}

@@ -1,0 +1,112 @@
+nav{display:flex;align-items:center;}
+nav .logo{font-size:2rem;}
+nav .menu{margin-left:auto;}
+
+.content{
+	display:flex;
+	max-width:860px;
+	flex-direction:column;
+	align-items:center;
+	padding-top:7rem;
+	width:80%;
+}
+.flash{	margin-bottom:1rem; width:100%; text-align:center;}
+
+/* For login, register, profile-configure */
+.account{
+	display:flex;flex-direction:column;
+	align-items:center;
+	margin-top:auto;margin-bottom:auto;
+}
+.account .logo{margin-bottom:3rem;}
+.account form{
+	display:flex;flex-direction:column;
+	align-items:center;
+}
+.account label{margin-bottom:1rem;}
+form label{align-self:flex-start;}
+.account .user-attr-container{
+	display:flex;
+	align-self:flex-start;align-items:center;
+	margin-bottom:1.5rem;
+	min-width:20em;
+}
+.user-attr-container label{width:10em;}
+.user-attr-container .user-attr{width:100%;margin-bottom:0rem;}
+.account input[type='submit']{
+	align-self:flex-end;
+	margin-right:0rem;
+}
+
+
+/* For marks */
+.header{
+	display:flex;flex-direction:column;
+	align-items:flex-start;align-self:flex-start;
+	margin-bottom:3rem;
+}
+.header .user{
+	display:flex;
+	align-items:center;align-self:flex-start;
+}
+.mark-box{
+	padding:1rem 1rem;
+	display:flex;flex-direction:column;
+	align-items:flex-start;
+	width:100%;
+}
+.mark-box .one-mark{
+	display:flex;flex-direction:column;
+	align-items:flex-start;
+	width:100%;
+	margin-bottom:1rem;
+}
+
+/* For link, tag, views delete-btn in one-mark */
+.one-mark .mark-container{
+	display:flex; 
+	align-items:center;align-self:stretch;
+}
+.mark-container .link-container{
+	display:flex; flex-direction:column; 
+	align-items:flex-start; align-self:stretch;
+	margin:0rem .5rem;
+	flex-grow:1;
+	min-width:10em;
+	max-width:70%;
+}
+.link-container .link{width:100%;text-align:left;}
+.link a:hover {color:#f76c6c}
+.one-mark .tag-form{
+	display:flex;
+	align-items:center;align-self:stretch;
+	margin:0 0;
+	margin-right:.5rem;
+	min-width:15em;
+}
+.tag-form input{width:100%;}
+
+.one-mark .del{
+	display:flex;
+	align-items:center;align-self:stretch;
+	margin:0 0;
+	margin-right:.5rem;
+}
+/* For tags in one-mark*/
+.one-mark .tag-container{
+	align-self:stretch;
+	margin:0rem .5rem;
+	text-align:left;
+}
+.tag form{margin:0 0;}
+.tag .del-tag{
+	cursor:pointer;
+	background-color:transparent;
+	border:1px solid transparent;
+	color:white;
+	visibility:hidden;
+	margin:0 0;
+}
+.tag:hover .del-tag{
+	visibility:visible;
+}

@@ -3,37 +3,29 @@
 	<title>
 	markit - {%block title%}{%endblock%}
 	</title>
-	<link rel="stylesheet" href="{{url_for('static',filename='style_test.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='style_test2.css')}}">
+  	<script type="text/javascript" src="{{url_for('static',filename='script.js')}}"></script>
+
 </head>
 
 <body class="flex-row-container">
-	<nav class="fixed-top pl-3 pr-3 pt-2 pb-2 white-bg flex-row-container">
+	<nav class="fixed-top white-bg pt-1 pb-1 pl-1 pr-1">
 		<div class='logo'>
 			<a href="/">mark-it	</a>
 		</div>
-		<div class="f-right thm-font">
+		<div class="menu thm-font">
 			{% if g.user %}
-			<div class="inline btn">
-				<a href="{{ url_for('auth.logout')}}">Log Out</a>
-			</div>
-			<div class="inline btn deep-green-bg white-font">
-				 <a href="{{ url_for('auth.configure')}}">Profile</a>
-			</div>
+			<a href="{{ url_for('auth.logout')}}" class="btn">Log Out</a>
+			<a href="{{ url_for('auth.configure')}}" class="btn deep-green-bg white-font">Profile</a>
 			{% else %}
-			<div class="inline btn">
-				<a href="{{url_for('auth.login')}}">Log In</a>	
-			</div>
-			<div class="inline btn deep-green-bg white-font">
-				<a href="{{url_for('auth.register')}}">Register</a>
-			</div>
+			<a href="{{url_for('auth.login')}}" class="btn">Log In</a>	
+			<a href="{{url_for('auth.register')}}" class="btn deep-green-bg white-font">Register </a>
 			{% endif %}
 		</div>
 	</nav>
 
-	<section class="content pt-7 flex-col-container">
-		<header>
-			{%block header %}{% endblock %}
-		</header>
+	<section class="content">
+		{%block header %}{% endblock %}
 		{%for msg in get_flashed_messages() %}
 		<div class="flash lv1-font">
 			{{msg}}

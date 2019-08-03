@@ -9,20 +9,21 @@ import traceback as tb
 ERR = dict(	
 	REGISTER = dict(
 		REQUIRED = dict(
-			USERNAME = "username is required",
-			PW = 'password is required',
-			EMAIL = 'email is required'
+			USERNAME = "Username is required",
+			PW = 'Password is required',
+			EMAIL = 'Email is required'
 		),
 		WRONG = dict(
-			PW = 'password not confirmed',
-			EMAIL = 'unsuitable email format'
+			PW = 'Password not confirmed',
+			EMAIL = 'Unsuitable email format'
 		),
-		ENROLLED = 'already registered'
+		ENROLLED = 'Already registered',
+		SUCCESS = "Signed up!"
 	),
 	LOGIN = dict(
 		INCORRECT = dict(
-			EMAIL = "incorrect email",
-			PW = 'incorrect password'
+			EMAIL = "Incorrect email",
+			PW = 'Incorrect password'
 		)
 	),
 	VERIFY = dict(
@@ -30,10 +31,10 @@ ERR = dict(
 		UNCOMPLETE = "wrong page"
 	),
 	CONFIGURE = dict(
-		SUCCESS = "CONFIGURATION SUCCESS",
+		SUCCESS = "It is changed",
 		FAIL = dict(
-			PW = "PW WRONG",
-			GENERAL = "CONFIGURATION FAIL"
+			PW = "Password wrong",
+			GENERAL = "Configuration fail"
 		)
 	)
 )
@@ -68,7 +69,7 @@ def register():
 		elif db.execute('SELECT id FROM user WHERE email = ?',(email,)).fetchone():
 			err = "{} {}".format(email,ERR.REGISTER.ENROLLED)
 		elif db.execute('SELECT id FROM user WHERE username = ?',(username,)).fetchone():
-			err = "{} {}".formaT(username, ERR.REGISTER.ENROLLED)
+			err = "{} {}".format(username, ERR.REGISTER.ENROLLED)
 		else:
 			pass
 		
@@ -81,6 +82,7 @@ def register():
 				)
 				db.commit()
 				#TODO : send email to verify email address
+				flash(ERR.REGISTER.SUCCESS)
 				return redirect(url_for('auth.login'))
 			except:
 				tb.print_exc()
@@ -157,7 +159,7 @@ def configure():
 			err = ERR.CONFIGURE.SUCCESS
 			if new_pw is not None:
 				db.execute(
-					"UPDATE user SET username = ?, password = ?WHERE email = ?",
+					"UPDATE user SET username = ?, password = ? WHERE email = ?",
 					(username,generate_password_hash(new_pw),g.user['email']))
 				db.commit()
 			else:
@@ -168,10 +170,7 @@ def configure():
 		flash(err)
 		return redirect(url_for('auth.configure'))
 	
-	return render_template('auth/configure.html',
-						  username = g.user['username'],
-						  email = g.user['email']
-						  )
+	return render_template('auth/configure.html')
 		
 @bp.route('/logout')
 @login_required

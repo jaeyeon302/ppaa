@@ -1,0 +1,23 @@
+@import url('/static/thm.css');
+@import url('/static/layout.css');
+@import url('/static/components.css');
+
+@import url('/static/desktop/components.css') (min-width:768px);
+@import url('/static/mobile/components.css') (min-width: 320px) and (max-width: 480px)
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 300px) {
+
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+	html,body{font-size:40px}
+}

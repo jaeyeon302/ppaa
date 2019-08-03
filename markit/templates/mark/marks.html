@@ -1,5 +1,94 @@
-{% for mark in marks%}
-<a href="{{mark['link']}}">{{mark['link']}}</a><br/>
-{% endfor %}
+{% extends 'base.html' %}
 
-{{user['username']}}
+{% block header%}
+<div class="header">
+	<div class="user">
+		<div class="lv1-font f-left">
+				{{data['counts']}} marks
+		</div>
+	</div>
+	{% if data['target_tag']%}
+	<div class="lv1-font mono-font deep-green-font">
+			#{{data['target_tag']}}
+	</div>
+	{%endif%}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="cyan-green-bg round-box mark-box">
+	{% if data['counts'] == 0 %}
+	
+	<div class="lv2-font f-stretch flex-row-container">
+		<div class="thm-font like-btn white-bg f-stretch flex-row-container">
+			Fill your bookmarks!
+		</div>
+	</div>
+	<div class="lv2-font f-stretch flex-row-container">
+		<div class="mono-font like-btn white-bg f-stretch flex-row-container" style="text-align:left">
+			<span id="loc-origin">/{{g.user['username']}}/<span class="mono-font bold">link you want to mark</span>
+			</span>
+		</div>
+	</div>
+
+	{%endif%}
+	
+	
+	
+	{% for mark in data['marks']%}
+	
+	<div class="one-mark">
+		<div class="mark-container">
+			<div class="white-bg like-btn link-container">
+				<div class="lv4-font gray-font">
+					<span>{{mark['created']}} / </span>
+					<span style="margin-left:auto; ">{{mark['view_count']}} views</span>
+				</div>
+				<div class="lv4-font gray-font">
+					
+				</div>
+				<div class="lv3-font link">
+					<a  href="/api/link/{{mark['link']}}" class="ellipsis" target="_blank"  class="hover-color mr-1">
+						{{mark['link']}}
+					</a>
+				</div>
+			</div>
+
+			<form method="post" action="/api/add_tag" class="white-bg like-btn tag-form">
+				<input type="text" name="link" id="link" value="{{mark['link']}}" style="display:none">
+				<input class="no-border mono-font lv3-font" name="tag" id="tag" placeholder="#tag" required>
+				<input type="submit" value="add" style="display:none">
+			</form>
+			
+				
+			<a href="/api/del/{{mark['link']}}" class="white-bg btn del">
+				<div>X</div>
+			</a>
+
+		</div>
+		
+		<div class="like-btn white-font mono-font tag-container">
+			{% if data['tags'][mark] %}
+				{% for tag in data['tags'][mark] %}
+				<span class="tag">
+					<a href="/mark?tag={{tag}}" class="hover-underline">#{{tag}}</a>
+					<form action="/api/del_tag" method="post" class="inline">
+						<input style="display:none" name='link'value="{{mark['link']}}">
+						<input style="display:none" name='tag' value="{{tag}}">
+						<input type="submit" class="del-tag" value="x">
+					</form>
+				</span>
+				{% endfor %}
+			{% else %}
+				<span> No tag yet</span>
+			{% endif %}
+		</div>
+		
+	</div>
+	
+
+	{% endfor %}
+
+
+{% endblock %}
+

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap'); 
+@font-face { font-family: 'Binggrae-Bold';
+src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae-Bold.woff') format('woff'); font-weight: normal; font-style: normal; 
+}
+
+@font-face { font-family: 'Eoe_Zno_L'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_L.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'ON-IGothic'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+
+/* color set for background */
+.deep-green-bg{background-color:#025918}
+.cyan-green-bg{background-color:#1FA667}
+.green-bg{background-color:#4BBF5C}
+.black-bg{background-color:#0D0C09}
+.gray-bg{background-color:#404040}
+.light-gray-bg{background-color:lightgray;}
+.white-bg{background-color:#ffffff}
+.light-red-bg{background-color:#f76c6c}
+
+/* color set for font */
+.dark-blue-font{color:#172b4d}
+.deep-green-font{color:#025918}
+.cyan-green-font{color:#52D967}
+.white-font{color:#ffffff}
+.gray-font{color:#404040}
+.light-red-font{color:#f76c6c}
+
+/* font family and font style */
+.plain-font{font-family:'ON-IGothic',sans-serif;}
+.thm-font{font-family:'Binggrae-Bold';}
+.mono-font{font-family:'Inconsolata', 'Eoe_Zno_L',monospace;}
+.bold{font-weight:bold;}
+.italic{font-style:italic;}
+
+/* font size */
+.lv1-font{font-size:2rem;}
+.lv2-font{font-size:1.5rem;}
+.lv3-font{font-size:1rem;}
+.lv4-font{font-size:0.8rem;}
+
+
+
+/* border style*/
+.no-border{border-style:none!important;}
+.underline-box{border-style:none !important;border-bottom:1px solid #025918 !important;}
+
+/* hover style */
+.hover-underline:hover{	border-bottom:1px solid white;}

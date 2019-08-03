@@ -1,27 +1,52 @@
- @font-face { 
-	font-family: 'Binggrae-Bold'; 
-	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae-Bold.woff') format('woff'); 
-	font-weight: normal; 
-	font-style: normal; 
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap'); 
+@font-face { font-family: 'Binggrae-Bold';
+src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae-Bold.woff') format('woff'); font-weight: normal; font-style: normal; 
 }
 
-@font-face { font-family: 'ON-IGothic'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Eoe_Zno_L'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_L.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'ON-IGothic'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+/* basic shape */
 .round-box{border-radius:.2rem;}
 
+/* color set for background */
 .deep-green-bg{background-color:#025918}
-.cyan-green-bg{background-color:#52D967}
+.cyan-green-bg{background-color:#1FA667}
 .green-bg{background-color:#4BBF5C}
 .black-bg{background-color:#0D0C09}
 .gray-bg{background-color:#404040}
+.light-gray-bg{background-color:lightgray;}
 .white-bg{background-color:#ffffff}
+.light-red-bg{background-color:#f76c6c}
 
+/* color set for font */
 .dark-blue-font{color:#172b4d}
+.deep-green-font{color:#025918}
+.cyan-green-font{color:#52D967}
 .white-font{color:#ffffff}
-.thm-font{font-family:'Binggrae-Bold';}
+.gray-font{color:#404040}
+.light-red-font{color:#f76c6c}
 
+/* font family and font style */
+.plain-font{font-family:'ON-IGothic',sans-serif;}
+.thm-font{font-family:'Binggrae-Bold';}
+.mono-font{font-family:'Inconsolata', 'Eoe_Zno_L',monospace;}
+.bold{font-weight:bold;}
+.italic{font-style:italic;}
+
+/* font size */
 .lv1-font{font-size:2rem;}
 .lv2-font{font-size:1.5rem;}
 .lv3-font{font-size:1.2rem;}
+.lv4-font{font-size:0.8rem;}
+
+
+/* flex layout */
+.flex-align-start{align-items:flex-start!important}
+.flex-align-end{align-items:flex-end!important}
+.flex-align-stretch{align-items:stretch!important}
+.f-stretch{align-self:stretch!important;align-items:center;}
 
 .flex-col-container{display:flex;flex-direction:column;align-items:center;}
 .flex-row-container{display:flex;align-items:center;}
@@ -33,7 +58,11 @@
 .flex-row-container > .f-bottom{align-self:flex-end;}
 .flex-row-container > .f-right{margin-left:auto;}
 .flex-row-container > .f-center{margin-left:auto;margin-right:auto;}
+.f-grow-1{flex-grow:1}
 
+
+/* margin and padding set */
+.block{display:block;}
 .inline{display:inline;}
 .fixed-top{
 	position:fixed;
@@ -42,6 +71,7 @@
 	right:0;
 	z-index:1030;
 }
+.p-0{padding:0 0;}
 .pt-0{padding-top:0rem!important;}
 .pt-1{padding-top:1rem;}
 .pt-2{padding-top:2rem;}
@@ -61,10 +91,14 @@
 .pb-7{padding-bottom:7rem;}
 
 .pl-0{padding-left:0rem!important;}
+.pl-1{padding-left:1rem;}
+.pl-2{padding-left:2rem;}
 .pl-3{padding-left:3rem;}
 .pl-5{padding-left:5rem;}
 
 .pr-0{padding-right:0rem!important;}
+.pr-1{padding-right:1rem;}
+.pr-2{padding-right:2rem;}
 .pr-3{padding-right:3rem;}
 .pr-5{padding-right:5rem;}
 
@@ -91,7 +125,24 @@
 .mr-2{margin-right:2rem;}
 .mr-3{margin-right:3rem;}
 .mr-4{margin-right:4rem;}
-.content{width:100%;min-height:500px;}
+
+/* CSS for components */
+.one-mark{width:inherit;margin-bottom:1em;}
+.one-mark .del-tag{
+	visibility:hidden;
+}
+.one-mark .tag{margin-right:0.5em}
+.one-mark .tag:hover > .del-tag{
+	visibility:visible;
+}
+
+.content{
+	width:100%;
+	max-width:860px;
+	min-height:500px;
+	margin-left:auto;
+	margin-right:auto;
+}
 nav .logo{font-size:2rem;}
 .logo{
 	height:inherit;
@@ -99,37 +150,82 @@ nav .logo{font-size:2rem;}
 	font-style:italic;
 }
 
-.btn{
-	cursor:pointer;
+.like-btn, .btn{
 	padding:.375rem .75rem;
 	text-align:center;
 	vertical-align:middle;
 	border-radius:.2rem;
 	text-decoration:inherit;
 	border:1px solid transparent;
-	margin:auto 0.5rem;
-	transition: color .10s ease-in-out,
-		background-color .10s ease-in-out,
-		border-color .10s ease-in-out,
-		box-shadow .10s ease-in-out;
+	margin:0.5rem 0.5rem;
+}
+
+.btn{
+	cursor:pointer;
+	transition: color .15s ease-in-out,
+		background-color .15s ease-in-out,
+		border-color .15s ease-in-out,
+		box-shadow .15s ease-in-out;
 }
 .btn:hover{	box-shadow: 5px 5px silver;}
+.no-border{border-style:none!important;}
+.underline{border-style:none !important;border-bottom:1px solid #025918 !important;}
+
 label{width:10em;}
 a{color:inherit;text-decoration:inherit;font-size:inherit;}
+.hover-color:hover{	border-bottom:1px solid white;}
+
 body{
 	margin:0 auto;
 	max-width:1200px;
 	font-family:'ON-IGothic',sans-serif;
-	
+}
+.like-input-layout,input[type='text'],input[type='email'],input[type='password']{
+	padding:.375em .375em;
+	min-width:15em;
 }
 input[type='text'],input[type='email'],input[type='password']{
 	border-style: solid;
 	border-width:1px;
 	border-color:gray;
-	padding:.375em .375em;
-	min-width:17em;
 	font-family:inherit;
 }
 
 
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */                          
+}
+/* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
 

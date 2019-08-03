@@ -1,0 +1,53 @@
+a{color:inherit;text-decoration:inherit;font-size:inherit;}
+.like-input-layout,input[type='text'],input[type='email'],input[type='password']{
+	padding:.375rem .375rem;
+	min-width:15em;
+}
+input[type='text'],input[type='email'],input[type='password']{
+	border-style:solid;
+	border-width:1px;
+	border-color:gray;
+	font-family:inherit;
+}
+
+/* reusable components */
+.logo{
+	height:inherit;
+	font-family:'Binggrae-Bold';
+	font-style:italic;
+}
+.btn{
+	cursor:pointer;
+	transition: color .15s ease-in-out,
+		background-color .15s ease-in-out,
+		border-color .15s ease-in-out,
+		box-shadow .15s ease-in-out;
+}
+.like-btn, .btn{
+	text-align:center;
+	vertical-align:middle;
+	text-decoration:inherit;
+	border:1px solid transparent;
+	padding:.375rem .75rem;
+	margin:.5rem .5rem;
+	border-radius:.2rem;
+}
+.btn:hover{	box-shadow: 5px 5px silver;}
+
+.ellipsis{
+	display:inline-block;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width:100%;
+}
+/* basic shape */
+.round-box{border-radius:.2rem;}
+
+/* specific components */
+.content{
+	margin-left:auto;
+	margin-right:auto;
+}
+.tag-container{line-height:1.5em;}
+.tag-form input:focus{outline:none;}
