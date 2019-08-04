@@ -7,7 +7,12 @@ from markit.auth import login_required
 import traceback as tb
 
 
-ERR = dict()
+ERR = dict(
+	DEL=dict(
+		LINK="link removed",
+		TAG='tag removed'
+	)
+)
 ERR = objFromDict(ERR)
 
 bp = Blueprint('api',__name__,url_prefix="/api")
@@ -26,7 +31,7 @@ def del_link(link):
 	user_id = g.user['id']
 	db.execute('DELETE FROM mark WHERE user_id=? AND link=?',(g.user['id'],link))
 	db.commit()
-	flash("link is deleted")
+	flash(ERR.DEL.LINK)
 	return redirect(url_for('mark.index'))
 
 @bp.route('/link/<path:link>')
@@ -52,7 +57,7 @@ def add_tag():
 		tag = tag.replace(' ','')
 		if not tag.startswith('#'):
 			tag="#{}".format(tag)
-		print(tag)
+		
 		db.execute('UPDATE mark SET tag = tag||? WHERE user_id=? AND link=?',
 				   (tag,user_id,link))
 		db.commit()

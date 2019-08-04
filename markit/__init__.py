@@ -1,5 +1,4 @@
-
-from flask import Flask
+from flask import Flask, g,render_template
 from markit.config import set_config
 import os
 
@@ -17,6 +16,11 @@ def create_app(test_config=None):
 		os.mkdir(app.instance_path)
 		db.init_db(app)
 	db.init_app(app)
+	
+	#register 404
+	@app.errorhandler(404)
+	def page_not_found(error):
+		return render_template('404.html')
 	
 	#register blueprints
 	from . import auth

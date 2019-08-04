@@ -5,29 +5,29 @@
 
 {% block content %}
 <div class="account flex-col-container f-middle">
-	<h1 class="logo mb-3">{% block title %}Register{% endblock %}</h1>
+	<h1 class="logo mb-3">{% block title %}Sign Up{% endblock %}</h1>
 	<form method='post'>
 		
 		<div class="user-attr-container">
-			<label class=" lv3-font" for="username">Username</label>
-			<input class="lv3-font round-box" type='text' name='username' id='username' required placeholder="Can not change in future">
+			<div class="user-attr lv3-font" for="username">Username</div>
+			<input class="user-val lv3-font round-box" type='text' name='username' id='username' required placeholder="Can not change in future">
 		</div>
 		
 		<div class="user-attr-container">
-			<label class="lv3-font" for="email">Email</label>
-			<input class="lv3-font round-box" type="email" name='email' id='email' required placeholder="e.g., park@jaeyeon.com">
+			<div class="user-attr lv3-font" for="email">Email</div>
+			<input class="user-val lv3-font round-box" type="email" name='email' id='email' required placeholder="e.g., park@jaeyeon.com">
 		</div>
 		
 		<div class="user-attr-container">
-			<label class="lv3-font" for="pw">Password</label>
-			<input class="lv3-font round-box" type='password' id='pw' name='pw' required placeholder="Something only you know">
+			<div class="user-attr lv3-font" for="pw">Password</div>
+			<input class="user-val lv3-font round-box" type='password' id='pw' name='pw' required placeholder="Something only you know">
 		</div>
 		
 		<div class="user-attr-container">
-			<label class="lv3-font" for="pw-confirm">Confirm password</label>
-			<input class="lv3-font round-box" type='password' id='pw-confirm' name='pw-confirm' required>
+			<div class="user-attr lv3-font" for="pw-confirm">Confirm password</div>
+			<input class="user-val lv3-font round-box" type='password' id='pw-confirm' name='pw-confirm' required>
 		</div>		
-		<input class="lv3-font btn" type='submit' value='Create New Account'>
+		<input class="lv3-font btn white-bg" type='submit' value='Create New Account'>
 	</form>
 </div>
 

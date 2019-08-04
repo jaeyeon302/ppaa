@@ -10,26 +10,26 @@
 	</h1>
 	<form method="post">
 		<div class="user-attr-container">
-			<label class="lv3-font">Email</label>
-			<span class="lv3-font round-box like-input-layout">{{g.user['email']}}</span>
+			<div class="user-attr lv3-font">Email</div>
+			<span class="user-val lv3-font round-box like-input-layout">{{g.user['email']}}{{g.app_name}}</span>
 		</div>
 		<div class="user-attr-container">
-			 <label class="lv3-font" for="username">username</label>
-			<span class="lv3-font round-box like-input-layout">{{g.user['username']}}</span>
+			 <div class="user-attr lv3-font" for="username">username</div>
+			<span class="user-val lv3-font round-box like-input-layout">{{g.user['username']}}</span>
 		</div>
 		<div class="user-attr-container">
-			 <label class="lv3-font" for="old-pw">old password</label>
-			<input class="lv3-font round-box" type='password' id='old-pw' name='old-pw' required>
+			 <div class="user-attr lv3-font" for="old-pw">old password</div>
+			<input class="user-val lv3-font round-box" type='password' id='old-pw' name='old-pw' required>
 		</div>
 		<div class="user-attr-container">
-			 <label class="lv3-font" for="new-pw">new password</label>
-			<input class="lv3-font round-box" type='password' id='new-pw' name='new-pw'>
+			 <div class="user-attr lv3-font" for="new-pw">new password</div>
+			<input class="user-val lv3-font round-box" type='password' id='new-pw' name='new-pw'>
 		</div>
 		<div class="user-attr-container">
-			 <label class="lv3-font" for="new-pw-confirm">confirm new password</label>
-			<input class="lv3-font round-box" type='password' id='new-pw-cofirm' name='new-pw-confirm'>
+			 <div class="lv3-font" for="new-pw-confirm">confirm new password</div>
+			<input class="user-val lv3-font round-box" type='password' id='new-pw-cofirm' name='new-pw-confirm'>
 		</div>	
-		<input class="lv3-font btn "type='submit' value='Update'>
+		<input class="lv3-font btn white-bg "type='submit' value='Update'>
 	</form>
 </div>
 {% endblock %}

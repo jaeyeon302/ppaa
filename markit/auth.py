@@ -27,11 +27,11 @@ ERR = dict(
 		)
 	),
 	VERIFY = dict(
-		COMPLETE = "verified",
-		UNCOMPLETE = "wrong page"
+		COMPLETE = "Verified",
+		UNCOMPLETE = "Wrong page"
 	),
 	CONFIGURE = dict(
-		SUCCESS = "It is changed",
+		SUCCESS = "Updated",
 		FAIL = dict(
 			PW = "Password wrong",
 			GENERAL = "Configuration fail"
@@ -54,7 +54,7 @@ def login_required(view):
 
 
 @bp.route('/register',methods=('GET','POST'))
-def register():
+def sign_up():
 	if req.method == 'POST':
 		username = req.form['username'].lstrip().rstrip()
 		pw = req.form['pw'].lstrip().rstrip()
@@ -145,7 +145,7 @@ def configure():
 		old_pw = req.form['old-pw'].lstrip().rstrip()
 		new_pw = req.form['new-pw'].lstrip().rstrip()
 		new_pw_confirm = req.form['new-pw-confirm'].lstrip().rstrip()
-		username = req.form['username'].lstrip().rstrip()
+		username = g.user['username']
 
 		err = None
 		if not check_password_hash(g.user['password'],old_pw):

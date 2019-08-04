@@ -2,17 +2,19 @@
 
 {% block content %}
 	<div class="account">
-		<h1 class='logo mb-3'>{% block title %}Log in{% endblock %}</h1>
+		<h1 class='logo mb-3'>
+			<span>{% block title %}Log in{% endblock %}</span>
+		</h1>
 		<form method='post'>
 			<label class="lv2-font">Email</label>
 			<div class="user-attr-container">
-				<input class="user-attr lv3-font round-box" type="email" name='email' id='email' required placeholder="e.g., park@jaeyeon.com">
+				<input class="user-val lv3-font round-box" type="email" name='email' id='email' required placeholder="e.g., park@jaeyeon.com" style="width:100%">
 			</div>
 			<label class="lv2-font">password</label>
 			<div class="user-attr-container">
-				<input class="user-attr lv3-font round-box"type='password' id='pw' name='pw' required placeholder='e.g., something only you know'>
+				<input class="user-val lv3-font round-box"type='password' id='pw' name='pw' required placeholder='e.g., something only you know'  style="width:100%">
 			</div>	
-			<input class="lv3-font btn" type='submit' value='Log In'>
+			<input class="lv3-font btn white-bg" type='submit' value='Log In'>
 		</form>
 	</div>
 {% endblock %}

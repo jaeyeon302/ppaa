@@ -1,7 +1,18 @@
+html{position:relative;min-height:100%;}
+body{min-height:100%;}
+nav{
+	padding:1rem 3rem;
+	border-bottom:1px solid silver;
+}
+
 a{color:inherit;text-decoration:inherit;font-size:inherit;}
+
+.input[type="text"],input[type='email'],input[type='password'],input[type='submit']{
+	-webkit-appearance: none;
+}
+
 .like-input-layout,input[type='text'],input[type='email'],input[type='password']{
-	padding:.375rem .375rem;
-	min-width:15em;
+	padding:.375rem .375rem;min-width:15em;
 }
 input[type='text'],input[type='email'],input[type='password']{
 	border-style:solid;
@@ -13,8 +24,7 @@ input[type='text'],input[type='email'],input[type='password']{
 /* reusable components */
 .logo{
 	height:inherit;
-	font-family:'Binggrae-Bold';
-	font-style:italic;
+	font-family:'Binggrae-Bold'!important; font-style:italic;
 }
 .btn{
 	cursor:pointer;
@@ -32,7 +42,7 @@ input[type='text'],input[type='email'],input[type='password']{
 	margin:.5rem .5rem;
 	border-radius:.2rem;
 }
-.btn:hover{	box-shadow: 5px 5px silver;}
+.btn:hover{box-shadow: 5px 5px silver;}
 
 .ellipsis{
 	display:inline-block;
@@ -42,12 +52,41 @@ input[type='text'],input[type='email'],input[type='password']{
 	width:100%;
 }
 /* basic shape */
-.round-box{border-radius:.2rem;}
+.round-box{border-radius:.2rem!important;}
 
 /* specific components */
 .content{
 	margin-left:auto;
 	margin-right:auto;
 }
+.footer{
+	display:flex;flex-direction:column;
+	align-items:flex-end;align-self:stretch;	
+	padding:1rem 2rem;
+	position:absolute;
+	
+ 	left: 0;right:1px;
+ 	bottom: 0;
+	text-align: center;
+	margin:3rem 0rem;
+	margin-bottom:0rem;
+}
+.footer .description{margin-bottom:.2rem;}
+.footer .copyright{margin-left:auto;}
+
+.account{
+	padding:1.2rem 1rem;
+}
 .tag-container{line-height:1.5em;}
 .tag-form input:focus{outline:none;}
+.tag .del-tag{
+	visibility:hidden;
+	color:white;
+	cursor:pointer;
+	background-color:transparent;
+	border:1px solid transparent;
+}
+
+.tag:hover .del-tag{
+	visibility:visible;
+}

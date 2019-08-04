@@ -10,12 +10,16 @@ src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae-Bo
 
 /* color set for background */
 .deep-green-bg{background-color:#025918}
+.light-green-bg{background-color:
+#74e39a;}
 .cyan-green-bg{background-color:#1FA667}
 .green-bg{background-color:#4BBF5C}
 .black-bg{background-color:#0D0C09}
-.gray-bg{background-color:#404040}
-.light-gray-bg{background-color:lightgray;}
+.gray-bg{background-color:#e0e0e0}
+.light-gray-bg{background-color:#989898;}
 .white-bg{background-color:#ffffff}
+.white-gray-bg{background-color:
+#eaeaea;}
 .light-red-bg{background-color:#f76c6c}
 
 /* color set for font */
@@ -27,10 +31,13 @@ src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae-Bo
 .light-red-font{color:#f76c6c}
 
 /* font family and font style */
+body{font-family:'ON-IGothic',sans-serif;}
 .plain-font{font-family:'ON-IGothic',sans-serif;}
+.light-plain-font{font-family:'Eoe_Zno_L',sans-serif;}
 .thm-font{font-family:'Binggrae-Bold';}
 .mono-font{font-family:'Inconsolata', 'Eoe_Zno_L',monospace;}
 .bold{font-weight:bold;}
+.lighter{font-weight:lighter;}
 .italic{font-style:italic;}
 
 /* font size */
@@ -43,7 +50,8 @@ src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae-Bo
 
 /* border style*/
 .no-border{border-style:none!important;}
-.underline-box{border-style:none !important;border-bottom:1px solid #025918 !important;}
+.underline{border-style:none !important;border-bottom:1px solid !important;}
 
 /* hover style */
-.hover-underline:hover{	border-bottom:1px solid white;}
+.hover-underline:hover{	border-bottom:1px solid;}
+.hover-color:hover{color:#f76c6c;}

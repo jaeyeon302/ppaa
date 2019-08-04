@@ -1,25 +1,25 @@
 <!doctype html>
 <head>
 	<title>
-	markit - {%block title%}{%endblock%}
+	ppaa {%block title%}{%endblock%}
 	</title>
 	<link rel="stylesheet" href="{{url_for('static',filename='style_test2.css')}}">
   	<script type="text/javascript" src="{{url_for('static',filename='script.js')}}"></script>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="flex-row-container">
-	<nav class="fixed-top white-bg pt-1 pb-1 pl-1 pr-1">
+<body class="white-gray-bg">
+	<nav class="fixed-top white-bg">
 		<div class='logo'>
-			<a href="/">mark-it	</a>
+			<a href="/">ppaa</a>
 		</div>
 		<div class="menu thm-font">
 			{% if g.user %}
-			<a href="{{ url_for('auth.logout')}}" class="btn">Log Out</a>
+			<a href="{{ url_for('auth.logout')}}" class="btn white-bg">Log Out</a>
 			<a href="{{ url_for('auth.configure')}}" class="btn deep-green-bg white-font">Profile</a>
 			{% else %}
-			<a href="{{url_for('auth.login')}}" class="btn">Log In</a>	
-			<a href="{{url_for('auth.register')}}" class="btn deep-green-bg white-font">Register </a>
+			<a href="{{url_for('auth.login')}}" class="btn white-bg">Log In</a>	
+			<a href="{{url_for('auth.sign_up')}}" class="btn deep-green-bg white-font">Sign Up </a>
 			{% endif %}
 		</div>
 	</nav>
@@ -33,4 +33,14 @@
 		{% endfor %}
 		{%block content%}{% endblock %}
 	</section>
+	
+	<div class="footer">
+		<div class="description mono-font lighter">
+			<span>Contact me :</span>
+			<span>parkjani2@gmail.com</span>
+		</div>
+		<div class="copyright lv4-font">
+			 <span>© Copyright 2019. <a href="https://jaeyeon-park.github.io/" class="underline hover-color">Jaeyeon-park</a></span>
+		</div>
+	</div>
 </body>

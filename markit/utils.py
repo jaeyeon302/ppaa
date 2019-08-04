@@ -1,3 +1,6 @@
+import urllib.request as req
+from urllib import parse
+
 class objFromDict(object):
     def __init__(self, d):
         for a, b in d.items():
@@ -21,4 +24,12 @@ def complete_link(link,query_string=None):
 		query_string = query_string.decode('utf-8')
 		link += "?{}".format(query_string)
 	return link	
+	
+def validate_link(link):
+	try:
+		url = req.urlopen(link)
+		if url.getcode() < 400: return True
+		else: return False
+	except:
+		return False
 	
