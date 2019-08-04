@@ -5,3 +5,5 @@ markit/__pycache__/*
 goorm.manifest
 
 instance/*
+.gcloudignore
+app.yaml
