@@ -1,5 +1,5 @@
-markit/config.py
-markit/__pycache__/*
+ppaa/config.py
+ppaa/__pycache__/*
 *.pyc
 *~
 goorm.manifest
