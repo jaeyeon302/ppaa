@@ -5,4 +5,5 @@ CURRENT_DIR = os.getcwd()
 sys.stdout = sys.stderr
 sys.path.insert(0,CURRENT_DIR)
 
-from main import app as application
+from ppap import create_app
+application = create_app()

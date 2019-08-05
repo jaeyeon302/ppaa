@@ -5,5 +5,4 @@ ppaa/__pycache__/*
 goorm.manifest
 
 instance/*
-.gcloudignore
-app.yaml
+*env/

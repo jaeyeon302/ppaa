@@ -1,5 +1,6 @@
 asn1crypto==0.24.0
 bcrypt==3.1.7
+bjoern==3.0.1
 cffi==1.12.3
 Click==7.0
 cryptography==2.7
