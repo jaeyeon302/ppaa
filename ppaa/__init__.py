@@ -1,5 +1,5 @@
 from flask import Flask, g,render_template
-from markit.config import set_config
+from ppaa.config import set_config
 import os
 
 def create_app(test_config=None):

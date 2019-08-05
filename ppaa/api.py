@@ -1,9 +1,9 @@
 import functools
 from flask import Blueprint, flash, g, redirect, session, url_for
 from flask import request as req
-from markit.db import get_db
-from markit.utils import objFromDict, complete_link
-from markit.auth import login_required
+from ppaa.db import get_db
+from ppaa.utils import objFromDict, complete_link
+from ppaa.auth import login_required
 import traceback as tb
 
 
