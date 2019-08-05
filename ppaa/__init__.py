@@ -2,12 +2,12 @@ from flask import Flask, g,render_template
 from ppaa.config import set_config
 import os
 
-def create_app(test_config=None):
+def create_app(DEBUG=True):
 	app = Flask(__name__,instance_relative_config=True)
 	
 	#update config
 	config = set_config(database = os.path.join(app.instance_path,'markit.db'),
-					   debug = True)
+					   debug = DEBUG)
 	app.config.update(config)
 	
 	#initialize database
