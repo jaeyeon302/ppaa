@@ -9,7 +9,7 @@ print(current_path)
 
 if __name__ == "__main__":
     default_ip = "0.0.0.0"
-    default_port = 80
+    default_port = 8080
 
     ip = default_ip
     port = default_port

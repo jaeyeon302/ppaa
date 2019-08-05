@@ -6,3 +6,5 @@ goorm.manifest
 
 instance/*
 *env/
+*nohup*
+log*
