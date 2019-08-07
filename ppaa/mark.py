@@ -39,6 +39,7 @@ def index(link=None):
 		link = link[index+1:]
 		#complete link url to redirect
 		link = complete_link(link,req.query_string)
+		print("add {} to {}'s marks".format(link,username))
 			
 		#return "{} {}".format(username,link)
 		user = db.execute('SELECT id,email FROM user WHERE username = ?',(username,)).fetchone()
