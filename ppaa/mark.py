@@ -2,7 +2,7 @@ import functools
 from flask import Blueprint, flash, g, redirect, render_template, session, url_for,abort
 from flask import request as req
 from ppaa.db import get_db
-from ppaa.utils import objFromDict, complete_link, validate_link
+from ppaa.utils import objFromDict, complete_link
 from ppaa.auth import login_required
 import traceback as tb
 
@@ -45,19 +45,15 @@ def index(link=None):
 		if not user:
 			return render_template('mark/no_user.html',username=username,link=link)
 		
-		if validate_link(link):
-			already_inserted = db.execute('SELECT link FROM mark WHERE user_id=? AND link=?',
-										 (user['id'],link)).fetchone()
-			if already_inserted:
-				return render_template('mark/already_inserted.html',username=username,link=link)
-			else:
-				db.execute('INSERT INTO mark (user_id,link) VALUES (?,?)',(user['id'],link))
-				db.commit()
-				#TODO : send email 
-				return redirect(link)
+		already_inserted = db.execute('SELECT link FROM mark WHERE user_id=? AND link=?',
+									 (user['id'],link)).fetchone()
+		if already_inserted:
+			return render_template('mark/already_inserted.html',username=username,link=link)
 		else:
-			flash(ERR.UNVALID.LINK)
-			abort(404)
+			db.execute('INSERT INTO mark (user_id,link) VALUES (?,?)',(user['id'],link))
+			db.commit()
+			#TODO : send email 
+			return redirect(link)
 	
 	if link:abort(404)
 	if not g.user:

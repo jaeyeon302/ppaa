@@ -1,5 +1,6 @@
 import urllib.request as req
 from urllib import parse
+import traceback as tb
 
 class objFromDict(object):
     def __init__(self, d):
@@ -26,10 +27,14 @@ def complete_link(link,query_string=None):
 	return link	
 	
 def validate_link(link):
+	res = None
 	try:
 		url = req.urlopen(link)
-		if url.getcode() < 400: return True
-		else: return False
+		if url.getcode() < 400: res=True
+		else: res=False
 	except:
-		return False
+		tb.print_exc()
+		res = False
+	print("validate : {} / link :{}".format(res,link))
+	return res
 	
