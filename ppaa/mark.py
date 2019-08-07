@@ -2,11 +2,13 @@ import functools
 from flask import Blueprint, flash, g, redirect, render_template, session, url_for,abort
 from flask import request as req
 from ppaa.db import get_db
-from ppaa.utils import objFromDict, complete_link
+from ppaa.utils import objFromDict, complete_link, add_timestamp
 from ppaa.auth import login_required
 import traceback as tb
 
 from collections import Counter
+
+print = add_timestamp(print)
 
 ERR = dict(
 	UNVALID=dict(
@@ -49,7 +51,9 @@ def index(link=None):
 		
 		already_inserted = db.execute('SELECT link FROM mark WHERE user_id=? AND link=?',
 									 (user['id'],link)).fetchone()
+		
 		if already_inserted:
+			print("already_inserted : {}".format(link))
 			return render_template('mark/already_inserted.html',username=username,link=link)
 		else:
 			db.execute('INSERT INTO mark (user_id,link) VALUES (?,?)',(user['id'],link))

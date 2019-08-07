@@ -4,6 +4,8 @@ import bjoern
 current_path = os.path.abspath('./')
 sys.path.append(current_path)
 from ppaa import create_app
+from ppaa.utils import add_timestamp
+print = add_timestamp(print)
 print(current_path)
 
 

@@ -3,8 +3,10 @@ from flask import Blueprint,flash,g,redirect,render_template,session,url_for
 from flask import request as req
 from werkzeug.security import check_password_hash, generate_password_hash
 from ppaa.db import get_db
-from ppaa.utils import objFromDict
+from ppaa.utils import objFromDict, add_timestamp
 import traceback as tb
+
+print = add_timestamp(print)
 
 ERR = dict(	
 	REGISTER = dict(
@@ -83,6 +85,7 @@ def sign_up():
 				db.commit()
 				#TODO : send email to verify email address
 				flash(ERR.REGISTER.SUCCESS)
+				print("sign-up username {} email {}".format(username,email))
 				return redirect(url_for('auth.login'))
 			except:
 				tb.print_exc()
@@ -116,7 +119,7 @@ def login():
 		if not err:
 			session.clear()
 			session['user_id'] = user['id']
-			print(url_for('mark.index'))
+			print("login user_id {}".format(user['id']))
 			return redirect(url_for('mark.index'))
 		flash(err)
 	return render_template('auth/login.html')
@@ -124,7 +127,7 @@ def login():
 @bp.route('/verify')
 def verify():
 	email_hash = req.args.get('h')
-	if not email_hash: return render_template('404.html')
+	if not email_hash: abort(404)
 	
 	user = db.execute('SELECT id,email FROM user WHERE email_hash = ?',
 					  (email_hash,)).fetchone()
@@ -175,6 +178,7 @@ def configure():
 @bp.route('/logout')
 @login_required
 def logout():
+	print("logout user_id {}".format(session['user_id']))
 	session.clear()
 	return redirect(url_for('auth.login'))
 

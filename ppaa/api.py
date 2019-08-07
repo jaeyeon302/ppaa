@@ -2,10 +2,11 @@ import functools
 from flask import Blueprint, flash, g, redirect, session, url_for
 from flask import request as req
 from ppaa.db import get_db
-from ppaa.utils import objFromDict, complete_link
+from ppaa.utils import objFromDict, complete_link, add_timestamp
 from ppaa.auth import login_required
 import traceback as tb
 
+print = add_timestamp(print)
 
 ERR = dict(
 	DEL=dict(
@@ -44,6 +45,7 @@ def visit_link(link):
 	user_id = g.user['id']
 	db.execute('UPDATE mark SET view_count=view_count+1 WHERE user_id=? AND link=?',(user_id,link))
 	db.commit()
+	print("user_id {} visit link {}".format(user_id,link))
 	return redirect(link)
 
 @bp.route('/add_tag',methods=('POST',))
@@ -59,10 +61,11 @@ def add_tag():
 		tag = tag.replace(' ','')
 		if not tag.startswith('#'):
 			tag="#{}".format(tag)
-		
+
 		db.execute('UPDATE mark SET tag = tag||? WHERE user_id=? AND link=?',
 				   (tag,user_id,link))
 		db.commit()
+		print("add_tag {} to user_id {}'s link {}".format(tag,user_id,link))
 
 		return redirect(url_for('mark.index'))
 	
@@ -88,6 +91,8 @@ def del_tag():
 			db.execute('UPDATE mark SET tag=? WHERE user_id=? AND link=?',
 					  (update_tag,user_id,link))
 			db.commit()
+					
+			print("del_tag {} to user_id {}'s link {}".format(tag,user_id,link))
 			
 		
 	return redirect(url_for('mark.index'))

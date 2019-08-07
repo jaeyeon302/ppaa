@@ -1,5 +1,8 @@
 import sqlite3
 from flask import current_app, g
+from ppaa.utils import add_timestamp
+
+print = add_timestamp(print)
 
 def get_db():
 	if 'db' not in g:

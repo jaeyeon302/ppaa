@@ -1,6 +1,7 @@
 import urllib.request as req
 from urllib import parse
 import traceback as tb
+from datetime import datetime
 
 class objFromDict(object):
     def __init__(self, d):
@@ -38,3 +39,9 @@ def validate_link(link):
 	print("validate : {} / link :{}".format(res,link))
 	return res
 	
+def add_timestamp(print_func):
+	def new_print(value,**kwargs):
+		time = datetime.now().isoformat()
+		value = "{} | {}".format(time,value)
+		print_func(value)
+	return new_print
