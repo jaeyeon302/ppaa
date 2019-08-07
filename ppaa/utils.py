@@ -20,10 +20,10 @@ def complete_link(link,query_string=None):
 		link = 'https://'+link[len('https:/'):]
 	else:
 		link = 'http://'+link
-		
 	if query_string:
 		query_string = query_string.decode('utf-8')
 		link += "?{}".format(query_string)
+		print(link)
 	return link	
 	
 def validate_link(link):

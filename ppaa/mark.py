@@ -38,6 +38,8 @@ def index(link=None):
 		username = link[:index]
 		link = link[index+1:]
 		#complete link url to redirect
+		print(req)
+		print(req.query_string)
 		link = complete_link(link,req.query_string)
 		print("add {} to {}'s marks".format(link,username))
 			
