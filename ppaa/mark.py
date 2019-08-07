@@ -36,11 +36,10 @@ def index(link=None):
 	if link is not None and '/' in link:
 		index = link.index('/')
 		username = link[:index]
-		link = link[index+1:]
+		index = req.url.index("{}/".format(username))
+		link = req.url[index+len(username)+1:]
 		#complete link url to redirect
-		print(req)
-		print(req.query_string)
-		link = complete_link(link,req.query_string)
+		link = complete_link(link)
 		print("add {} to {}'s marks".format(link,username))
 			
 		#return "{} {}".format(username,link)

@@ -27,8 +27,10 @@ def index():
 @login_required
 def del_link(link):
 	db = get_db()
-	link = complete_link(link,req.query_string)
-	user_id = g.user['id']
+	index = req.url.index('/del/')
+	link = req.url[index+len('/del/'):]
+	link = complete_link(link)
+	print("delete {} from userid {}, username {}".format(link,g.user['id'],g.user['username']))
 	db.execute('DELETE FROM mark WHERE user_id=? AND link=?',(g.user['id'],link))
 	db.commit()
 	flash(ERR.DEL.LINK)
