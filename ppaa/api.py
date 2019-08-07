@@ -41,7 +41,9 @@ def del_link(link):
 @login_required
 def visit_link(link):
 	db = get_db()
-	link = complete_link(link,req.query_string)
+	index = req.url.index('/link/')
+	link = req.url[index+len('/link/'):]
+	link = complete_link(link)
 	user_id = g.user['id']
 	db.execute('UPDATE mark SET view_count=view_count+1 WHERE user_id=? AND link=?',(user_id,link))
 	db.commit()
