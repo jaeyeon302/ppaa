@@ -43,5 +43,5 @@ def add_timestamp(print_func):
 	def new_print(value,**kwargs):
 		time = datetime.now().isoformat()
 		value = "{} | {}".format(time,value)
-		print_func(value)
+		print_func(value,**kwargs)
 	return new_print
