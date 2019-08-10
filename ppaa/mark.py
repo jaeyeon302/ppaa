@@ -12,7 +12,8 @@ print = add_timestamp(print)
 
 ERR = dict(
 	UNVALID=dict(
-		LINK="unvalid link"
+		LINK="unvalid link",
+		VERIFY="Verify your account first to bookmark"
 	)
 )
 ERR = objFromDict(ERR)
@@ -45,9 +46,14 @@ def index(link=None):
 		print("add {} to {}'s marks".format(link,username))
 			
 		#return "{} {}".format(username,link)
-		user = db.execute('SELECT id,email FROM user WHERE username = ?',(username,)).fetchone()
+		user = db.execute('SELECT id,email,verified FROM user WHERE username = ?',(username,)).fetchone()
+		
 		if not user:
 			return render_template('mark/no_user.html',username=username,link=link)
+		
+		if user['verified']!=1:
+			flash(ERR.UNVALID.VERIFY)
+			return redirect(url_for('auth.login'))
 		
 		already_inserted = db.execute('SELECT link FROM mark WHERE user_id=? AND link=?',
 									 (user['id'],link)).fetchone()

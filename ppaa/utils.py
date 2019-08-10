@@ -2,6 +2,9 @@ import urllib.request as req
 from urllib import parse
 import traceback as tb
 from datetime import datetime
+from ppaa.config import mail_config
+import requests
+
 
 class objFromDict(object):
     def __init__(self, d):
@@ -11,7 +14,21 @@ class objFromDict(object):
             else:
                setattr(self, a, objFromDict(b) if isinstance(b, dict) else b)
 			
+mail_conf = objFromDict(mail_config())
+def send_mail(to,subject,txt=None,html=None,from_addr="PPAA Support <support@ppaa.me>"):
+	if not isinstance(to,list):to = [to]
+		
+	return requests.post(
+		mail_conf.ADDRESS,
+		auth=('api',mail_conf.API_KEY),
+		data={'from':from_addr,
+			 'to':to,
+			 'subject':subject,
+			 'text':txt,
+			 'html':html})
 
+			
+			
 def complete_link(link,query_string=None):
 	if link.startswith('http://') or link.startswith('https://'):
 		return link

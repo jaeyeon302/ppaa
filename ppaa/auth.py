@@ -1,10 +1,11 @@
 import functools
-from flask import Blueprint,flash,g,redirect,render_template,session,url_for
+from flask import Blueprint,flash,g,redirect,render_template,session,url_for,abort
 from flask import request as req
 from werkzeug.security import check_password_hash, generate_password_hash
 from ppaa.db import get_db
-from ppaa.utils import objFromDict, add_timestamp
+from ppaa.utils import objFromDict, add_timestamp, send_mail
 import traceback as tb
+from datetime import datetime
 
 print = add_timestamp(print)
 
@@ -20,12 +21,16 @@ ERR = dict(
 			EMAIL = 'Unsuitable email format'
 		),
 		ENROLLED = 'Already registered',
-		SUCCESS = "Signed up!"
+		SUCCESS = """
+		Signed up! 
+		Email to verify your accout is sent! 
+		please check it
+		"""
 	),
 	LOGIN = dict(
 		INCORRECT = dict(
-			EMAIL = "Incorrect email",
-			PW = 'Incorrect password'
+			EMAIL = "Incorrect email or password",
+			PW = 'Incorrect password or password'
 		)
 	),
 	VERIFY = dict(
@@ -54,7 +59,22 @@ def login_required(view):
 		return view(**kwargs)
 	return wrapped_view
 
-
+def authenticate_user(username,email,email_hash,hostname):
+	timestamp = datetime.now().timestamp()
+	data=dict(
+		USERNAME=username,
+		EMAIL_HASH=email_hash,
+		TIMESTAMP=timestamp,
+		HOSTNAME=hostname
+	)
+	html = render_template('auth/authenticate.html',data=data)
+	try:
+		send_mail(email,"Hi, {}, please verity your ppaa' account".format(username),html=html)
+		print("email to verity user : {}".format(username))
+	except:
+		print(tb.format_exc())
+	
+		
 @bp.route('/register',methods=('GET','POST'))
 def sign_up():
 	if req.method == 'POST':
@@ -86,6 +106,7 @@ def sign_up():
 				#TODO : send email to verify email address
 				flash(ERR.REGISTER.SUCCESS)
 				print("sign-up username {} email {}".format(username,email))
+				authenticate_user(username,email,email_hash,req.host)
 				return redirect(url_for('auth.login'))
 			except:
 				tb.print_exc()
@@ -100,6 +121,8 @@ def index():
 
 @bp.route('/login',methods=('GET','POST'))
 def login():
+	if g.user:
+		return redirect(url_for('mark.index'))
 	if req.method == 'POST':
 		pw = req.form['pw'].lstrip().rstrip()
 		email = req.form['email'].lstrip().rstrip()
@@ -127,16 +150,18 @@ def login():
 @bp.route('/verify')
 def verify():
 	email_hash = req.args.get('h')
-	if not email_hash: abort(404)
-	
+	#still thinking... is timestamp required?
+	time = req.args.get('timestamp') 
+	if not email_hash or not time: abort(404)
+	db = get_db()
 	user = db.execute('SELECT id,email FROM user WHERE email_hash = ?',
 					  (email_hash,)).fetchone()
+
 	if user:
 		db.execute(
 			'UPDATE user SET verified=? WHERE id=?',(1,user['id'])
 		)
 		db.commit()
-		flash(ERR.VERIFY.COMPLETE)
 		return render_template('auth/verified.html', email=user['email'])
 	else:
 		return render_template('404.html')
@@ -172,8 +197,10 @@ def configure():
 
 		flash(err)
 		return redirect(url_for('auth.configure'))
-	
-	return render_template('auth/configure.html')
+	data = dict(
+		VERIFIED=g.user['verified']
+	)
+	return render_template('auth/configure.html',data=data)
 		
 @bp.route('/logout')
 @login_required

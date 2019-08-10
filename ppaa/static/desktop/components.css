@@ -80,6 +80,10 @@ nav .menu{margin-left:auto;}
 	align-self:flex-end;
 	margin-right:0rem;
 }
+.account .btn{
+	align-self:flex-end;
+	margin-right:0rem;
+}
 
 
 /* For marks */

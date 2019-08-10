@@ -29,7 +29,11 @@
 			 <div class="lv3-font" for="new-pw-confirm">confirm new password</div>
 			<input class="user-val lv3-font round-box" type='password' id='new-pw-cofirm' name='new-pw-confirm'>
 		</div>	
-		<input class="lv3-font btn white-bg "type='submit' value='Update'>
+		<input class="lv3-font btn deep-green-bg white-font"type='submit' value='Update'>
+		{%if data['VERIFIED']!=1%}
+		<a href="/api/verify" class="lv3-font btn white-bg">Resend mail to verify</a>
+		{%endif%}
+		<a href="/api/del_user" class="lv3-font btn white-bg">Delete your account</a>
 	</form>
 </div>
 {% endblock %}

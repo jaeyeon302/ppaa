@@ -10,8 +10,12 @@ print = add_timestamp(print)
 
 ERR = dict(
 	DEL=dict(
-		LINK="link removed",
-		TAG='tag removed'
+		LINK="link was removed",
+		TAG='tag was removed',
+		USER="Account was closed"
+	),
+	VERIFY=dict(
+		RESEND="email was resent"
 	)
 )
 ERR = objFromDict(ERR)
@@ -98,3 +102,26 @@ def del_tag():
 			
 		
 	return redirect(url_for('mark.index'))
+
+@bp.route('/del_user')
+@login_required
+def del_user():
+	user_id = g.user['id']
+	email = g.user['email']
+	db = get_db()
+	db.execute('DELETE FROM user WHERE id=?',(user_id,))
+	db.execute('DELETE FROM mark WHERE user_id=?',(user_id,))
+	db.commit()
+	flash("{} {}".format(email,ERR.DEL.USER))
+	print("{} account is removed".format(email))
+	return redirect(url_for('auth.logout'))
+	
+
+@bp.route('/verify')
+@login_required
+def verify():
+	from ppaa.auth import authenticate_user
+	authenticate_user(g.user['username'],g.user['email'],g.user['email_hash'],req.host)
+	flash(ERR.VERIFY.RESEND)
+	return redirect(url_for('mark.index'))
+	
