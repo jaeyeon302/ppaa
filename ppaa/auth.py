@@ -69,7 +69,7 @@ def authenticate_user(username,email,email_hash,hostname):
 	)
 	html = render_template('auth/authenticate.html',data=data)
 	try:
-		send_mail(email,"Hi, {}, please verity your ppaa' account".format(username),html=html)
+		send_mail(email,"Hi, {}, please verify your ppaa account".format(username),html=html)
 		print("email to verity user : {}".format(username))
 	except:
 		print(tb.format_exc())
