@@ -3,6 +3,159 @@
 # This file is distributed under the same license as the PPAA project.
 # JAEYEON AUTHOR <parkjani2@gmail.com>, 2019.
 #
+# For 'regsiter.html'
+msgid "signup-title"
+msgstr "Sign Up"
+msgid "signup-username"
+msgstr "Username"
+msgid "signup-username-placeholder"
+msgstr "Can't change in future"
+msgid "signup-email"
+msgstr "Email"
+msgid "signup-pw"
+msgstr "Password"
+msgid "signup-pw-placeholder"
+msgstr "e.g., something only you know"
+msgid "signup-pw2"
+msgstr "Confirm password"
+msgid "signup-create"
+msgstr "Create new account"
+
+# For 'verfied.html'
+msgid "verified-back"
+msgstr "Back to marks!"
+
+# For 'login.html'
+msgid 'login-title'
+msgstr "Log In"
+
+# For 'configure.html'
+msgid 'conf-title'
+msgstr "Profile"
+msgid 'conf-oldpw'
+msgstr "Old password"
+msgid 'conf-newpw'
+msgstr "New password"
+msgid 'conf-newpw2'
+msgstr "Confirm new password"
+msgid 'conf-verify'
+msgstr "Resend the email to verify"
+msgid 'conf-update'
+msgstr "Update"
+msgid 'conf-deluser'
+msgstr "Delete your account"
+ 
+# For 'authenticate.html'
+msgid 'auth-title'
+msgstr "Welcomte to PPAA"
+msgid 'auth-hi'
+msgstr "Hi"
+msgid 'auth-nim'
+msgstr ""
+msgid 'auth-here'
+msgstr "Here"
+msgid 'auth-verify'
+msgstr "To verify your account, please click below link"
+
+
+# For 'base.html'
+msgid 'b-profile'
+msgstr 'Profile'
+msgid 'b-login'
+msgstr 'Log In'
+msgid 'b-logout'
+msgstr 'Log Out'
+msgid 'b-signup'
+msgstr 'Sign Up'
+
+# For '404.html'
+msgid 'notfound'
+msgstr '404! NOT FOUND!'
+
+# For 'already_inserted.html'
+msgid 'already-inserted1'
+msgstr "is already marked in"
+msgid 'already-inserted2'
+msgstr "'s bookmark" 
+msgid 'back2link'
+msgstr "Back to link"
+
+# For 'marks.html'
+msgid 'm-marks'
+msgstr "bookmarks"
+msgid 'm-fill'
+msgstr "Fill your bookmarks!"
+msgid 'm-link'
+msgstr "link-to-bookmark"
+
+# For 'index.html'
+msgid 'i-username'
+msgstr "username"
+msgid 'i-phrase'
+msgstr "Easy way to bookmark on the public computer"
+msgid 'i-description'
+msgstr "It is uncomfortable when I log in chrome to bookmark on the public computer. Sending email is also tiresome. So I made it - ppaa"
+msgid 'i-signup-detail'
+msgstr "Then, you can add your bookmark on anywhere by Copy&Paste below link format in the address bar"
+msgid 'i-login-detail'
+msgstr "Then, you can see your bookmarks"
+msgid 'i-ctrlL'
+msgstr "Cursor on the address bar"
+msgid 'i-ctrlA'
+msgstr "Select whole link string "
+msgid 'i-ctrlX'
+msgstr "Cut the link you selected"
+msgid 'i-ctrlV'
+msgstr "Paste the link"
+############################ FOR PYTHON ##########################
+# mark.py
+msgid 'mpy-unvalid-link'
+msgstr "Unvalid link"
+msgid "mpy-verify"
+msgstr "Your account is note yet verified. please check the email"
+
+# auth.py
+msgid 'aupy-required-username'
+msgstr "Username is required"
+msgid 'aupy-required-pw"
+msgstr "Password is required"
+msgid 'aupy-required-email'
+msgstr "Email is required"
+msgid 'aupy-wrong-pw'
+msgstr "Typo in password"
+msgid 'aupy-wrong-email'
+msgstr "Wrong format of email"
+msgid 'aupy-enrolled'
+msgstr "Already signed up'
+msgid 'aupy-success'
+msgstr "Signed up! please check the email for verification"
+msgid "aupy-login-incorrect'
+msgstr "Incorrect email or password"
+msgid 'aupy-verify-complete'
+msgstr "Verified"
+msgid 'aupy-verify-uncomplete'
+msgstr "Wrong access"
+msgid "aupy-conf-success"
+msgstr "Updated"
+msgid "aupy-conf-fail-pw"
+msgstr "Incorrect password"
+msgid "aupy-conf-fail"
+msgstr "0.0;; Bug in the server, Sorry"
+
+# api.py
+msgid "apy-del-link"
+msgstr "The link was deleted"
+msgid "apy-del-tag"
+msgstr "The tag was deleted"
+msgid "apy-del-account"
+msgstr "Account was closed"
+msgid "apy-verify-resend"
+msgstr "The email for verifcation was re-sent"
+
+
+msgid 'done'
+msgstr '끝'
+
 msgid ""
 msgstr ""
 "Project-Id-Version:  1.0\n"

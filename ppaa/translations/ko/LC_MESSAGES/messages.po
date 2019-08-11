@@ -91,6 +91,22 @@ msgstr "북마크할-링크"
 # For 'index.html'
 msgid 'i-username'
 msgstr "사용자이름"
+msgid 'i-phrase'
+msgstr "공용컴퓨터에서 걱정없이 북마크하는 편한 방법"
+msgid 'i-description'
+msgstr "공용컴퓨터에서 즐겨찾기 추가하고 싶을 때마다,\n크롬에 매번 로그인하기에는 찜찜하고,\n메일로 매번 링크 보내놓는 것도 귀찮아서 만들었습니다"
+msgid 'i-signup-detail'
+msgstr "하시면, 아래의 링크 형식을 주소창에 넣어 북마크를 추가할 수 있습니다."
+msgid 'i-login-detail'
+msgstr "하시면, 추가한 북마크를 볼 수 있습니다.
+msgid 'i-ctrlL'
+msgstr "주소창에 커서 놓기"
+msgid 'i-ctrlA'
+msgstr "주소 전체 선택"
+msgid 'i-ctrlX'
+msgstr "선택한 주소 자르기"
+msgid 'i-ctrlV'
+msgstr "위치에 ctrl+v로 자른 주소 붙이기"
 
 ############################ FOR PYTHON ##########################
 # mark.py

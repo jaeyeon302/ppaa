@@ -29,7 +29,7 @@ ERR = dict(
 	LOGIN = dict(
 		INCORRECT = dict(
 			EMAIL = "Incorrect email or password",
-			PW = 'Incorrect password or password'
+			PW = 'Incorrect email or password'
 		)
 	),
 	VERIFY = dict(

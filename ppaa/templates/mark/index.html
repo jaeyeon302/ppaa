@@ -6,33 +6,28 @@
 	<div class="intro-container">
 		<div class="catchphrase light-plain-font">
 			<div class="phrase logo ">ppaa</div>
-			<div class="phrase">공용컴퓨터에서 
-				걱정 없이 
-				북마크하는 편한 방법</div>
-			<div class="description ">공용컴퓨터에서 즐겨찾기 추가하고 싶을 때마다, 
-			크롬에 매번 로그인하기에는 찜찜하고, 
-			메일로 매번 링크 보내놓는 것도 귀찮아서 만들었습니다</div>
+			<div class="phrase">{{_('i-phrase')}}</div>
+			<div class="description ">{{_('i-description')}}</div>
 		</div>
 		
 		<div class="intro lv2-font plain-font">
 			<div class="detail bold">
-				<a href="{{url_for('auth.sign_up')}}" class="btn deep-green-bg white-font thm-font">{{_('b-signup')}}</a><span>하시면, 아래의 링크 형식을 주소창에 넣어
-				북마크를 추가할 수 있습니다</span>
+				<a href="{{url_for('auth.sign_up')}}" class="btn deep-green-bg white-font thm-font">{{_('b-signup')}}</a><span>{{_('i-signup-detail')}}</span>
 			</div>
 			<div class="example round-box deep-green-font">
 				<span id="loc-origin"></span>/<span class="mono-font">{{_('i-username')}}</span>/<span class="mono-font">{{_('m-link')}}</span>
 			</div>
 			<div class="description mono-font lv2-font">
-				<div class="tips">ctrl+l : 주소창에 커서 놓기</div>
-				<div class="tips">ctrl+a : 주소 전체 선택</div>
-				<div class="tips">ctrl+x : 선택한 주소 자르기</div>
-				<div class="tips bold"style="">URL-to-bookmark 위치에 ctrl+v : 자른 주소 붙이기</div>
+				<div class="tips">ctrl+l : {{_('i-ctrlL')}}</div>
+				<div class="tips">ctrl+a : {{_('i-ctrlA')}}</div>
+				<div class="tips">ctrl+x : {{_('i-ctrlX')}}</div>
+				<div class="tips bold"style="">{{_('m-link')}} : {{_('i-ctrlV')}}</div>
 			</div>
 		</div>
 		
 		<div class="intro lv2-font plain-font">
 			<div class="detail bold">
-				<a href="{{url_for('auth.login')}}" class="btn white-bg thm-font">{{_('b-login')}}</a><span>하시면, 추가한 북마크를 볼 수 있습니다</span>
+				<a href="{{url_for('auth.login')}}" class="btn white-bg thm-font">{{_('b-login')}}</a><span>{{_('i-login-detail')}}</span>
 			</div>
 		</div>
 
