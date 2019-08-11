@@ -2,7 +2,7 @@ import functools
 from flask import Blueprint, flash, g, redirect, render_template, session, url_for,abort
 from flask import request as req
 from ppaa.db import get_db
-from ppaa.utils import objFromDict, complete_link,add_funcname_to_print
+from ppaa.utils import objFromDict, complete_link,add_funcname_to_print, available_username
 from ppaa.auth import login_required
 import traceback as tb
 
