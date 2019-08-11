@@ -1,12 +1,13 @@
-from flask import Flask, g,render_template
-from ppaa.config import set_config
+from flask import Flask, g,render_template, request
 import os
+
 
 def create_app(DEBUG=True):
 	app = Flask(__name__,instance_relative_config=True)
 	
 	#update config
-	config = set_config(database = os.path.join(app.instance_path,'markit.db'),
+	from . import config
+	config = config.set_config(database = os.path.join(app.instance_path,'markit.db'),
 					   debug = DEBUG)
 	app.config.update(config)
 	
@@ -17,6 +18,10 @@ def create_app(DEBUG=True):
 		db.init_db(app)
 	db.init_app(app)
 	
+	#initialize print_format
+	from . import utils
+	utils.set_print_format()
+
 	#register 404
 	@app.errorhandler(404)
 	def page_not_found(error):
@@ -31,6 +36,5 @@ def create_app(DEBUG=True):
 	
 	from . import mark
 	app.register_blueprint(mark.bp)
-	
 	
 	return app

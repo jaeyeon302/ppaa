@@ -77,6 +77,10 @@ input[type='text'],input[type='email'],input[type='password']{
 .account{
 	padding:1.2rem 1rem;
 }
+.account .btn{
+	align-self:flex-end;
+	margin-right:0rem;
+}
 .tag-container{line-height:1.5em;}
 .tag-form input:focus{outline:none;}
 .tag .del-tag{

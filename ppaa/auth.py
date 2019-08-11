@@ -3,11 +3,10 @@ from flask import Blueprint,flash,g,redirect,render_template,session,url_for,abo
 from flask import request as req
 from werkzeug.security import check_password_hash, generate_password_hash
 from ppaa.db import get_db
-from ppaa.utils import objFromDict, add_timestamp, send_mail
+from ppaa.utils import objFromDict, send_mail, add_funcname_to_print
 import traceback as tb
 from datetime import datetime
 
-print = add_timestamp(print)
 
 ERR = dict(	
 	REGISTER = dict(
@@ -59,7 +58,8 @@ def login_required(view):
 		return view(**kwargs)
 	return wrapped_view
 
-def authenticate_user(username,email,email_hash,hostname):
+@add_funcname_to_print
+def authenticate_user(print,username,email,email_hash,hostname):
 	timestamp = datetime.now().timestamp()
 	data=dict(
 		USERNAME=username,
@@ -70,13 +70,14 @@ def authenticate_user(username,email,email_hash,hostname):
 	html = render_template('auth/authenticate.html',data=data)
 	try:
 		send_mail(email,"Hi, {}, please verify your ppaa account".format(username),html=html)
-		print("email to verity user : {}".format(username))
+		print("Verify / email:{}, username:{}".format(email,username))
 	except:
 		print(tb.format_exc())
 	
 		
 @bp.route('/register',methods=('GET','POST'))
-def sign_up():
+@add_funcname_to_print
+def sign_up(print):
 	if req.method == 'POST':
 		username = req.form['username'].lstrip().rstrip()
 		pw = req.form['pw'].lstrip().rstrip()
@@ -105,14 +106,14 @@ def sign_up():
 				db.commit()
 				#TODO : send email to verify email address
 				flash(ERR.REGISTER.SUCCESS)
-				print("sign-up username {} email {}".format(username,email))
+				print("Sign-up / username:{}, email:{}".format(username,email))
 				authenticate_user(username,email,email_hash,req.host)
 				return redirect(url_for('auth.login'))
 			except:
-				tb.print_exc()
+				print(tb.format_exc())
 				err = ERR.REGISTER.WRONG.EMAIL
-				
 		flash(err)
+	print("Access register page")
 	return render_template('auth/register.html')
 
 @bp.route('/')
@@ -120,8 +121,10 @@ def index():
 	return redirect(url_for('auth.login'))
 
 @bp.route('/login',methods=('GET','POST'))
-def login():
+@add_funcname_to_print
+def login(print):
 	if g.user:
+		print("Already Login / user_id:{}".format(g.user['id']))
 		return redirect(url_for('mark.index'))
 	if req.method == 'POST':
 		pw = req.form['pw'].lstrip().rstrip()
@@ -142,13 +145,14 @@ def login():
 		if not err:
 			session.clear()
 			session['user_id'] = user['id']
-			print("login user_id {}".format(user['id']))
+			print("Login / user_i:{}".format(user['id']))
 			return redirect(url_for('mark.index'))
 		flash(err)
 	return render_template('auth/login.html')
 
 @bp.route('/verify')
-def verify():
+@add_funcname_to_print
+def verify(print):
 	email_hash = req.args.get('h')
 	#still thinking... is timestamp required?
 	time = req.args.get('timestamp') 
@@ -162,13 +166,15 @@ def verify():
 			'UPDATE user SET verified=? WHERE id=?',(1,user['id'])
 		)
 		db.commit()
+		print("Verified / user_id:{}, email:{}".format(user['id'],user['email']))
 		return render_template('auth/verified.html', email=user['email'])
 	else:
-		return render_template('404.html')
+		abort(404)
 
 @bp.route('/configure',methods=('GET','POST'))
 @login_required
-def configure():
+@add_funcname_to_print
+def configure(print):
 	if req.method == 'POST':
 		old_pw = req.form['old-pw'].lstrip().rstrip()
 		new_pw = req.form['new-pw'].lstrip().rstrip()
@@ -189,23 +195,26 @@ def configure():
 				db.execute(
 					"UPDATE user SET username = ?, password = ? WHERE email = ?",
 					(username,generate_password_hash(new_pw),g.user['email']))
-				db.commit()
 			else:
 				db.execute(
 					"UPDATE user SET username = ? WHERE email = ?",(username,))
-				db.commit()
+			db.commit()
+			print("Success / user_id:{}".format(g.user['id']))
 
 		flash(err)
+		print("Fail / user_id:{}".format(g.user['id']))
 		return redirect(url_for('auth.configure'))
 	data = dict(
 		VERIFIED=g.user['verified']
 	)
+	print("Access config page / user_id:{}".format(g.user['id']))
 	return render_template('auth/configure.html',data=data)
 		
 @bp.route('/logout')
 @login_required
-def logout():
-	print("logout user_id {}".format(session['user_id']))
+@add_funcname_to_print
+def logout(print):
+	print("Logout / user_id:{}".format(session['user_id']))
 	session.clear()
 	return redirect(url_for('auth.login'))
 

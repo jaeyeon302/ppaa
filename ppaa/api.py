@@ -2,11 +2,10 @@ import functools
 from flask import Blueprint, flash, g, redirect, session, url_for
 from flask import request as req
 from ppaa.db import get_db
-from ppaa.utils import objFromDict, complete_link, add_timestamp
+from ppaa.utils import objFromDict, complete_link, add_funcname_to_print
 from ppaa.auth import login_required
 import traceback as tb
 
-print = add_timestamp(print)
 
 ERR = dict(
 	DEL=dict(
@@ -30,20 +29,22 @@ def index():
 
 @bp.route("/del/<path:link>")
 @login_required
-def del_link(link):
+@add_funcname_to_print
+def del_link(print,link):
 	db = get_db()
 	index = req.url.index('/del/')
 	link = req.url[index+len('/del/'):]
 	link = complete_link(link)
-	print("delete {} from userid {}, username {}".format(link,g.user['id'],g.user['username']))
 	db.execute('DELETE FROM mark WHERE user_id=? AND link=?',(g.user['id'],link))
 	db.commit()
+	print("Delete / link:{}, user_id:{}".format(link,g.user['id']))
 	flash(ERR.DEL.LINK)
 	return redirect(url_for('mark.index'))
 
 @bp.route('/link/<path:link>')
 @login_required
-def visit_link(link):
+@add_funcname_to_print
+def visit_link(print,link):
 	db = get_db()
 	index = req.url.index('/link/')
 	link = req.url[index+len('/link/'):]
@@ -51,12 +52,13 @@ def visit_link(link):
 	user_id = g.user['id']
 	db.execute('UPDATE mark SET view_count=view_count+1 WHERE user_id=? AND link=?',(user_id,link))
 	db.commit()
-	print("user_id {} visit link {}".format(user_id,link))
+	print("link:{}, user_id:{}".format(link,user_id))
 	return redirect(link)
 
 @bp.route('/add_tag',methods=('POST',))
 @login_required
-def add_tag():
+@add_funcname_to_print
+def add_tag(print):
 	db = get_db()
 	if req.method =='POST':
 		tag = req.form['tag'].lstrip().rstrip()
@@ -71,13 +73,14 @@ def add_tag():
 		db.execute('UPDATE mark SET tag = tag||? WHERE user_id=? AND link=?',
 				   (tag,user_id,link))
 		db.commit()
-		print("add_tag {} to user_id {}'s link {}".format(tag,user_id,link))
+		print("tag:{}, user_id:{}, link:{}".format(tag,user_id,link))
 
 		return redirect(url_for('mark.index'))
 	
 @bp.route('/del_tag', methods=('POST',))
 @login_required
-def del_tag():
+@add_funcname_to_print
+def del_tag(print):
 	if req.method != 'POST':
 		return redirect(url_for('mark.index'))
 	
@@ -97,15 +100,13 @@ def del_tag():
 			db.execute('UPDATE mark SET tag=? WHERE user_id=? AND link=?',
 					  (update_tag,user_id,link))
 			db.commit()
-					
-			print("del_tag {} to user_id {}'s link {}".format(tag,user_id,link))
-			
-		
+			print("tag:{}, user_id:{}, link:{}".format(tag,user_id,link))
 	return redirect(url_for('mark.index'))
 
 @bp.route('/del_user')
 @login_required
-def del_user():
+@add_funcname_to_print
+def del_user(print):
 	user_id = g.user['id']
 	email = g.user['email']
 	db = get_db()
@@ -113,15 +114,17 @@ def del_user():
 	db.execute('DELETE FROM mark WHERE user_id=?',(user_id,))
 	db.commit()
 	flash("{} {}".format(email,ERR.DEL.USER))
-	print("{} account is removed".format(email))
+	print("user_id:{}, email:{} removed".format(user_id, email))
 	return redirect(url_for('auth.logout'))
 	
 
 @bp.route('/verify')
 @login_required
-def verify():
+@add_funcname_to_print
+def verify(print):
 	from ppaa.auth import authenticate_user
 	authenticate_user(g.user['username'],g.user['email'],g.user['email_hash'],req.host)
 	flash(ERR.VERIFY.RESEND)
+	print("Resend email to Verify / user_id:{}, email:{}".format(g.user['id'],g.user['email']))
 	return redirect(url_for('mark.index'))
 	
