@@ -81,6 +81,9 @@ input[type='text'],input[type='email'],input[type='password']{
 	align-self:flex-end;
 	margin-right:0rem;
 }
+.tag-box{
+	word-break:keep-all;
+}
 .tag-container{line-height:1.5em;}
 .tag-form input:focus{outline:none;}
 .tag .del-tag{
