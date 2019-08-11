@@ -17,7 +17,7 @@ class objFromDict(object):
 mail_conf = objFromDict(mail_config())
 def send_mail(to,subject,txt=None,html=None,from_addr="PPAA Support <support@ppaa.me>"):
 	if not isinstance(to,list):to = [to]
-		
+	
 	return requests.post(
 		mail_conf.ADDRESS,
 		auth=('api',mail_conf.API_KEY),
@@ -55,10 +55,24 @@ def validate_link(link):
 		res = False
 	print("validate : {} / link :{}".format(res,link))
 	return res
-	
-def add_timestamp(print_func):
-	def new_print(value,**kwargs):
+
+def add_funcname_to_print(f):
+	name = "{}.{}".format(f.__module__,f.__name__)
+	def new_print(val,**kwargs):
+		print("func: {} | {}".format(name,val),**kwargs)
+	def wrapped(*args,**kwargs):
+		return f(new_print,*args,**kwargs)
+	return wrapped
+
+def add_timestamp_to_stdout():
+	from sys import stdout
+	origin_out = stdout.write
+	def out(txt):
 		time = datetime.now().isoformat()
-		value = "{} | {}".format(time,value)
-		print_func(value,**kwargs)
-	return new_print
+		if txt !='\n':
+			txt = "{} | {}".format(time,txt)
+		origin_out(txt)
+	stdout.write = out
+	
+if __name__ != "__main__":
+	add_timestamp_to_stdout()
