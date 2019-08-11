@@ -38,6 +38,9 @@ def index(print,link=None):
 	if link is not None and '/' in link:
 		index = link.index('/')
 		username = link[:index]
+		if not available_username(username):
+			return abort(404)
+		
 		index = req.url.index("{}/".format(username))
 		link = req.url[index+len(username)+1:]
 		#complete link url to redirect

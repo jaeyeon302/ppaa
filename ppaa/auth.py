@@ -3,7 +3,7 @@ from flask import Blueprint,flash,g,redirect,render_template,session,url_for,abo
 from flask import request as req
 from werkzeug.security import check_password_hash, generate_password_hash
 from ppaa.db import get_db
-from ppaa.utils import objFromDict, send_mail, add_funcname_to_print
+from ppaa.utils import objFromDict, send_mail, available_username ,add_funcname_to_print
 import traceback as tb
 from datetime import datetime
 
@@ -91,7 +91,7 @@ def sign_up(print):
 		elif not email: err = ERR.REGISTER.REQUIRED.EMAIL
 		elif db.execute('SELECT id FROM user WHERE email = ?',(email,)).fetchone():
 			err = "{} {}".format(email,ERR.REGISTER.ENROLLED)
-		elif db.execute('SELECT id FROM user WHERE username = ?',(username,)).fetchone():
+		elif db.execute('SELECT id FROM user WHERE username = ?',(username,)).fetchone() or not available_username(username):
 			err = "{} {}".format(username, ERR.REGISTER.ENROLLED)
 		else:
 			pass

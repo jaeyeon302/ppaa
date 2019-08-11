@@ -57,6 +57,12 @@ def validate_link(link):
 	print("validate : {} / link :{}".format(res,link))
 	return res
 
+def available_username(username):
+	blocked = set(['api','auth','mark','get','post','*','/','ppaa'])
+	if username in blocked or '/' in username: return False
+	else: return True
+	
+
 def add_funcname_to_print(f):
 	name = "{}.{}".format(f.__module__,f.__name__)
 	def new_print(val,**kwargs):
