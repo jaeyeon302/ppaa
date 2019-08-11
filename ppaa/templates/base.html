@@ -29,11 +29,11 @@
 		</div>
 		<div class="menu thm-font">
 			{% if g.user %}
-			<a href="{{ url_for('auth.logout')}}" class="btn white-bg">Log Out</a>
-			<a href="{{ url_for('auth.configure')}}" class="btn deep-green-bg white-font">Profile</a>
+			<a href="{{ url_for('auth.logout')}}" class="btn white-bg">{{_('b-logout')}}</a>
+			<a href="{{ url_for('auth.configure')}}" class="btn deep-green-bg white-font">{{_('b-profile')}}</a>
 			{% else %}
-			<a href="{{url_for('auth.login')}}" class="btn white-bg">Log In</a>	
-			<a href="{{url_for('auth.sign_up')}}" class="btn deep-green-bg white-font">Sign Up </a>
+			<a href="{{url_for('auth.login')}}" class="btn white-bg">{{_('b-login')}}</a>	
+			<a href="{{url_for('auth.sign_up')}}" class="btn deep-green-bg white-font">{{_('b-signup')}}</a>
 			{% endif %}
 		</div>
 	</nav>

@@ -3,12 +3,12 @@
 {% block content %}
 <h1>
 	<span class="mono-font lighter">{{link}}</span>
-	<span>was already inserted in </span>
+	<span>{{_('already-inserted1')}} </span>
 	<span class="mono-font lighter">{{username}}</span>
-	<span>'s bookmark</span>
+	<span>{{_('already-inserted2')}}</span>
 </h1>
 <h2>
-	 <a href={{link}} class="hover-color"> back to link</a>
+	 <a href={{link}} class="hover-color">{{_('back2link')}}</a>
 </h2>
 {% endblock %}
 

@@ -16,11 +16,11 @@
 		
 		<div class="intro lv2-font plain-font">
 			<div class="detail bold">
-				<a href="{{url_for('auth.sign_up')}}" class="btn deep-green-bg white-font thm-font">Sign Up</a><span>하시면, 아래의 링크 형식을 주소창에 넣어
+				<a href="{{url_for('auth.sign_up')}}" class="btn deep-green-bg white-font thm-font">{{_('b-signup')}}</a><span>하시면, 아래의 링크 형식을 주소창에 넣어
 				북마크를 추가할 수 있습니다</span>
 			</div>
 			<div class="example round-box deep-green-font">
-				<span id="loc-origin"></span>/<span class="mono-font">your-username</span>/<span class="mono-font">URL-to-bookmark</span>
+				<span id="loc-origin"></span>/<span class="mono-font">{{_('i-username')}}</span>/<span class="mono-font">{{_('m-link')}}</span>
 			</div>
 			<div class="description mono-font lv2-font">
 				<div class="tips">ctrl+l : 주소창에 커서 놓기</div>
@@ -32,7 +32,7 @@
 		
 		<div class="intro lv2-font plain-font">
 			<div class="detail bold">
-				<a href="{{url_for('auth.login')}}" class="btn white-bg thm-font">Log In</a><span>하시면, 추가한 북마크를 볼 수 있습니다</span>
+				<a href="{{url_for('auth.login')}}" class="btn white-bg thm-font">{{_('b-login')}}</a><span>하시면, 추가한 북마크를 볼 수 있습니다</span>
 			</div>
 		</div>
 

@@ -1,12 +1,13 @@
 <h1>
-	Welcome to <span style="font-style:italic">ppaa</span>
+	{{_('auth-title')}}
 </h1>
 
 <p>
-	Hi, {{data['USERNAME']}} <br/>
-	Click <a href="http://{{data['HOSTNAME']}}/auth/verify?h={{data['EMAIL_HASH']}}&timestamp={{data['TIMESTAMP']}}">here</a> to verify your accounts
+	{{_('auth-hi')}}, {{data['USERNAME']}} {{_('auth-nim')}}<br/>
+	{{_('auth-verify')}}<br/>
+	<a href="http://{{data['HOSTNAME']}}/auth/verify?h={{data['EMAIL_HASH']}}&timestamp={{data['TIMESTAMP']}}">{{_('auth-here')}}</a>
 </p>
 
 <p>
-	Sent by <a href="http://{{data['HOSTNAME']}}" style="font-style:italic">ppaa</a>
+	From <a href="http://{{data['HOSTNAME']}}" style="font-style:italic">ppaa</a>
 </p>

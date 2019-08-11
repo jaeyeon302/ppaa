@@ -1,9 +1,17 @@
 from flask import Flask, g,render_template, request
+from flask_babel import Babel, gettext
 import os
 
 
 def create_app(DEBUG=True):
 	app = Flask(__name__,instance_relative_config=True)
+	babel = Babel(app)
+	
+	#setting for locale
+	@babel.localeselector
+	def get_locale():
+		supported_lang = ['ko','en']
+		return request.accept_languages.best_match(supported_lang)
 	
 	#update config
 	from . import config
@@ -37,4 +45,5 @@ def create_app(DEBUG=True):
 	from . import mark
 	app.register_blueprint(mark.bp)
 	
+	print(gettext(u'apy-del-link'))
 	return app

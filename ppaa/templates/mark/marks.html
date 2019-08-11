@@ -4,7 +4,7 @@
 <div class="header">
 	<div class="user">
 		<div class="lv1-font thm-font">
-				<span>{{data['counts']}} marks</span>
+				<span>{{data['counts']}} {{_('m-marks')}}</span>
 		</div>
 	</div>
 	{% if data['target_tag']%}
@@ -26,12 +26,12 @@
 
 		<div class="lv2-font">
 			<div class="thm-font like-btn white-bg">
-				Fill your bookmarks!
+				{{_('m-fill')}}
 			</div>
 		</div>
 		<div class="lv2-font">
 			<div class="mono-font like-btn white-bg" style="text-align:left">
-				<span id="loc-origin">/{{g.user['username']}}/<span class="mono-font bold">link you want to mark</span>
+				<span id="loc-origin">/{{g.user['username']}}/<span class="mono-font bold">{{_('m-link')}}</span>
 				</span>
 			</div>
 		</div>

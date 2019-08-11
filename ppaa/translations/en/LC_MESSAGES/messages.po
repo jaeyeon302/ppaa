@@ -1,0 +1,20 @@
+# English translations for PPAA.
+# Copyright (C) 2019 PPAA
+# This file is distributed under the same license as the PPAA project.
+# JAEYEON AUTHOR <parkjani2@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  1.0\n"
+"Report-Msgid-Bugs-To: parkjani2@gmail.com\n"
+"POT-Creation-Date: 2019-08-11 05:51+0000\n"
+"PO-Revision-Date: 2019-08-11 05:55+0000\n"
+"Last-Translator: Jaeyeon park <parkjani2@gmail.com>\n"
+"Language: en\n"
+"Language-Team: ko <parkjani2@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+

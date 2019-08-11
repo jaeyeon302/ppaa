@@ -58,7 +58,7 @@ def validate_link(link):
 	return res
 
 def available_username(username):
-	blocked = set(['api','auth','mark','get','post','*','/','ppaa'])
+	blocked = set(['api','auth','mark','get','post','*','/','ppaa','ko','en'])
 	if username in blocked or '/' in username: return False
 	else: return True
 	

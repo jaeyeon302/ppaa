@@ -1,6 +1,7 @@
 import functools
 from flask import Blueprint, flash, g, redirect, render_template, session, url_for,abort
 from flask import request as req
+from flask_babel import gettext
 from ppaa.db import get_db
 from ppaa.utils import objFromDict, complete_link,add_funcname_to_print, available_username
 from ppaa.auth import login_required
@@ -12,7 +13,7 @@ from collections import Counter
 ERR = dict(
 	UNVALID=dict(
 		LINK="unvalid link",
-		VERIFY="Verify your account first to bookmark"
+		VERIFY="please check the email to verify your account"
 	)
 )
 ERR = objFromDict(ERR)

@@ -1,0 +1,156 @@
+# Korean translations for PPAA.
+# Copyright (C) 2019 PPAA
+# This file is distributed under the same license as the PPAA project.
+# JAEYEON AUTHOR <parkjani2@gmail.com>, 2019.
+#
+# For 'regsiter.html'
+msgid "signup-title"
+msgstr "회원가입"
+msgid "signup-username"
+msgstr "사용자 이름"
+msgid "signup-username-placeholder"
+msgstr "나중에 못바꿔요"
+msgid "signup-email"
+msgstr "이메일"
+msgid "signup-pw"
+msgstr "비밀번호"
+msgid "signup-pw-placeholder"
+msgstr "e.g., 누구도 모르는거"
+msgid "signup-pw2"
+msgstr "비밀번호 확인"
+msgid "signup-create"
+msgstr "가입하기"
+
+# For 'verfied.html'
+msgid "verified-back"
+msgstr "북마크로!"
+
+# For 'login.html'
+msgid 'login-title'
+msgstr "로그인"
+
+# For 'configure.html'
+msgid 'conf-title'
+msgstr "프로필"
+msgid 'conf-oldpw'
+msgstr "옛 비밀번호"
+msgid 'conf-newpw'
+msgstr "새 비밀번호"
+msgid 'conf-newpw2'
+msgstr "새 비밀번호 확인"
+msgid 'conf-verify'
+msgstr "인증 메일 다시보내기"
+msgid 'conf-update'
+msgstr "계정 업데이트"
+msgid 'conf-deluser'
+msgstr "탈퇴하기"
+ 
+# For 'authenticate.html'
+msgid 'auth-title'
+msgstr "PPAA에 가입하신 걸 환영합니다"
+msgid 'auth-hi'
+msgstr "안녕하세요"
+msgid 'auth-nim'
+msgstr "님"
+msgid 'auth-here'
+msgstr "여기"
+msgid 'auth-verify'
+msgstr "계정 인증을 위해 아래 링크를 클릭해주세요"
+
+
+# For 'base.html'
+msgid 'b-profile'
+msgstr '회원정보'
+msgid 'b-login'
+msgstr '로그인'
+msgid 'b-logout'
+msgstr '로그아웃'
+msgid 'b-signup'
+msgstr '가입하기'
+
+# For '404.html'
+msgid 'notfound'
+msgstr '404! 잘못 찾아오셨습니다!'
+
+# For 'already_inserted.html'
+msgid 'already-inserted1'
+msgstr "는 예-전에"
+msgid 'already-inserted2'
+msgstr "의 북마크에 추가하셨습니다" 
+msgid 'back2link'
+msgstr "이전 링크로 돌아가기"
+
+# For 'marks.html'
+msgid 'm-marks'
+msgstr "개의 북마크"
+msgid 'm-fill'
+msgstr "북마크를 채워주세요!"
+msgid 'm-link'
+msgstr "북마크할-링크"
+
+# For 'index.html'
+msgid 'i-username'
+msgstr "사용자이름"
+
+############################ FOR PYTHON ##########################
+# mark.py
+msgid 'mpy-unvalid-link'
+msgstr "잘못된 링크입니다"
+msgid "mpy-verify"
+msgstr "계정이 아직 인증되지 않았습니다. 이메일을 확인해주세요"
+
+# auth.py
+msgid 'aupy-required-username'
+msgstr "사용자 이름이 입력되지 않았습니다"
+msgid 'aupy-required-pw"
+msgstr "비밀번호가 입력되지 않았습니다"
+msgid 'aupy-required-email'
+msgstr "이메일이 입력되지 않았습니다"
+msgid 'aupy-wrong-pw'
+msgstr "비밀번호가 서로 다릅니다"
+msgid 'aupy-wrong-email'
+msgstr "잘못된 이메일 형식입니다"
+msgid 'aupy-enrolled'
+msgstr "이미 등록된 계정입니다'
+msgid 'aupy-success'
+msgstr "가입되었습니다! 계정인증을 위해 이메일을 확인해주세요"
+msgid "aupy-login-incorrect'
+msgstr "이메일 혹은 비밀번호가 틀렸습니다"
+msgid 'aupy-verify-complete'
+msgstr "인증이 완료되었습니다"
+msgid 'aupy-verify-uncomplete'
+msgstr "잘못된 접근입니다"
+msgid "aupy-conf-success"
+msgstr "업데이트 되었습니다"
+msgid "aupy-conf-fail-pw"
+msgstr "비밀번호가 틀렸습니다"
+msgid "aupy-conf-fail"
+msgstr "띠용! 서버에 오류가!!!0.0 업데이트 되지 못했습니다"
+
+# api.py
+msgid "apy-del-link"
+msgstr "링크가 삭제되었습니다"
+msgid "apy-del-tag"
+msgstr "태그가 삭제되었습니다"
+msgid "apy-del-account"
+msgstr "탈퇴되었습니다"
+msgid "apy-verify-resend"
+msgstr "인증메일이 재발송되었습니다"
+
+
+msgid 'done'
+msgstr '끝'
+
+"Project-Id-Version:  1.0\n"
+"Report-Msgid-Bugs-To: parkjani2@gmail.com\n"
+"POT-Creation-Date: 2019-08-11 05:51+0000\n"
+"PO-Revision-Date: 2019-08-11 05:55+0000\n"
+"Last-Translator: Jaeyeon park <parkjani2@gmail.com>\n"
+"Language: ko\n"
+"Language-Team: ko <parkjani2@gmail.com>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+

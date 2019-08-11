@@ -6,34 +6,34 @@
 {% block content %}
 <div class="account">
 	<h1 class="logo">
-		{%block title %}Profile{%endblock%}
+		{%block title %}{{_('conf-title')}}{%endblock%}
 	</h1>
 	<form method="post">
 		<div class="user-attr-container">
-			<div class="user-attr lv3-font">Email</div>
+			<div class="user-attr lv3-font">{{_('signup-email')}}</div>
 			<span class="user-val lv3-font round-box like-input-layout">{{g.user['email']}}{{g.app_name}}</span>
 		</div>
 		<div class="user-attr-container">
-			 <div class="user-attr lv3-font" for="username">username</div>
+			 <div class="user-attr lv3-font" for="username">{{_('signup-username')}}</div>
 			<span class="user-val lv3-font round-box like-input-layout">{{g.user['username']}}</span>
 		</div>
 		<div class="user-attr-container">
-			 <div class="user-attr lv3-font" for="old-pw">old password</div>
+			 <div class="user-attr lv3-font" for="old-pw">{{_('conf-oldpw')}}</div>
 			<input class="user-val lv3-font round-box" type='password' id='old-pw' name='old-pw' required>
 		</div>
 		<div class="user-attr-container">
-			 <div class="user-attr lv3-font" for="new-pw">new password</div>
+			 <div class="user-attr lv3-font" for="new-pw">{{_('conf-newpw')}}</div>
 			<input class="user-val lv3-font round-box" type='password' id='new-pw' name='new-pw'>
 		</div>
 		<div class="user-attr-container">
-			 <div class="lv3-font" for="new-pw-confirm">confirm new password</div>
+			 <div class="user-attr lv3-font" for="new-pw-confirm">{{_('conf-newpw2')}}</div>
 			<input class="user-val lv3-font round-box" type='password' id='new-pw-cofirm' name='new-pw-confirm'>
 		</div>	
-		<input class="lv3-font btn deep-green-bg white-font"type='submit' value='Update'>
+		<input class="lv3-font btn deep-green-bg white-font"type='submit' value='{{_("conf-update")}}'>
 		{%if data['VERIFIED']!=1%}
-		<a href="/api/verify" class="lv3-font btn white-bg">Resend mail to verify</a>
+		<a href="/api/verify" class="lv3-font btn white-bg">{{_('conf-verify')}}</a>
 		{%endif%}
-		<a href="/api/del_user" class="lv3-font btn white-bg">Delete your account</a>
+		<a href="/api/del_user" class="lv3-font btn white-bg">{{_('conf-deluser')}}</a>
 	</form>
 </div>
 {% endblock %}
