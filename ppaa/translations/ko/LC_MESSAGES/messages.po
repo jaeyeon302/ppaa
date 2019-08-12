@@ -70,7 +70,7 @@ msgstr '가입하기'
 
 # For '404.html'
 msgid 'notfound'
-msgstr '404! 잘못 찾아오셨습니다!'
+msgstr '404! 잘못 찾아오셨습니다! ~.~'
 
 # For 'already_inserted.html'
 msgid 'already-inserted1'
@@ -141,7 +141,7 @@ msgstr "업데이트 되었습니다"
 msgid "aupy-conf-fail-pw"
 msgstr "비밀번호가 틀렸습니다"
 msgid "aupy-conf-fail"
-msgstr "띠용! 서버에 오류가!!!0.0 업데이트 되지 못했습니다"
+msgstr "띠용! 서버에 오류가!!! 0.0 업데이트 되지 못했습니다"
 
 # api.py
 msgid "apy-del-link"

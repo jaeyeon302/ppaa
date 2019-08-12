@@ -70,7 +70,7 @@ msgstr 'Sign Up'
 
 # For '404.html'
 msgid 'notfound'
-msgstr '404! NOT FOUND!'
+msgstr '404! NOT FOUND! ~.~'
 
 # For 'already_inserted.html'
 msgid 'already-inserted1'
@@ -94,15 +94,15 @@ msgstr "username"
 msgid 'i-phrase'
 msgstr "Easy way to bookmark on the public computer"
 msgid 'i-description'
-msgstr "It is uncomfortable when I log in chrome to bookmark on the public computer. Sending email is also tiresome. So I made it - ppaa"
+msgstr "To bookmark,\nIt is uncomfortable that I log-in chrome on the public computer.\nSending email is also tiresome. So I made it - ppaa"
 msgid 'i-signup-detail'
-msgstr "Then, you can add your bookmark on anywhere by Copy&Paste below link format in the address bar"
+msgstr "Then, you can add link to your bookmark using below link-format in the address bar"
 msgid 'i-login-detail'
 msgstr "Then, you can see your bookmarks"
 msgid 'i-ctrlL'
 msgstr "Cursor on the address bar"
 msgid 'i-ctrlA'
-msgstr "Select whole link string "
+msgstr "Select the link string "
 msgid 'i-ctrlX'
 msgstr "Cut the link you selected"
 msgid 'i-ctrlV'
@@ -112,7 +112,7 @@ msgstr "Paste the link"
 msgid 'mpy-unvalid-link'
 msgstr "Unvalid link"
 msgid "mpy-verify"
-msgstr "Your account is note yet verified. please check the email"
+msgstr "Your account isn't verified yet. please check the email"
 
 # auth.py
 msgid 'aupy-required-username'
@@ -150,7 +150,7 @@ msgstr "The tag was deleted"
 msgid "apy-del-account"
 msgstr "Account was closed"
 msgid "apy-verify-resend"
-msgstr "The email for verifcation was re-sent"
+msgstr "The email was re-sent to verify your account"
 
 
 msgid 'done'
