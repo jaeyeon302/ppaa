@@ -1,6 +1,7 @@
 import functools
 from flask import Blueprint,flash,g,redirect,render_template,session,url_for,abort
 from flask import request as req
+from flask_babel import lazy_gettext
 from werkzeug.security import check_password_hash, generate_password_hash
 from ppaa.db import get_db
 from ppaa.utils import objFromDict, send_mail, available_username ,add_funcname_to_print
@@ -11,36 +12,32 @@ from datetime import datetime
 ERR = dict(	
 	REGISTER = dict(
 		REQUIRED = dict(
-			USERNAME = "Username is required",
-			PW = 'Password is required',
-			EMAIL = 'Email is required'
+			USERNAME = lazy_gettext('aupy-required-username'),
+			PW = lazy_gettext('aupy-required-pw'),
+			EMAIL = lazy_gettext('aupy-required-email')
 		),
 		WRONG = dict(
-			PW = 'Password not confirmed',
-			EMAIL = 'Unsuitable email format'
+			PW = lazy_gettext('aupy-wrong-pw'),
+			EMAIL = lazy_gettext('aupy-wrong-email')
 		),
-		ENROLLED = 'Already registered',
-		SUCCESS = """
-		Signed up! 
-		Email to verify your accout is sent! 
-		please check it
-		"""
+		ENROLLED = lazy_gettext('aupy-enrolled'),
+		SUCCESS = lazy_gettext('aupy-success')
 	),
 	LOGIN = dict(
 		INCORRECT = dict(
-			EMAIL = "Incorrect email or password",
-			PW = 'Incorrect email or password'
+			EMAIL = lazy_gettext('aupy-login-incorrect'),
+			PW = lazy_gettext('aupy-login-incorrect')
 		)
 	),
 	VERIFY = dict(
-		COMPLETE = "Verified",
-		UNCOMPLETE = "Wrong page"
+		COMPLETE = lazy_gettext('aupy-verify-complete'),
+		UNCOMPLETE = lazy_gettext('aupy-verify-uncomplete')
 	),
 	CONFIGURE = dict(
-		SUCCESS = "Updated",
+		SUCCESS = lazy_gettext('aupy-conf-success'),
 		FAIL = dict(
-			PW = "Password wrong",
-			GENERAL = "Configuration fail"
+			PW = lazy_gettext('aupy-conf-fail-pw'),
+			GENERAL = lazy_gettext('aupy-conf-fail')
 		)
 	)
 )

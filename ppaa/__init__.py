@@ -1,7 +1,6 @@
 from flask import Flask, g,render_template, request
-from flask_babel import Babel, gettext
+from flask_babel import Babel, lazy_gettext, gettext
 import os
-
 
 def create_app(DEBUG=True):
 	app = Flask(__name__,instance_relative_config=True)
@@ -44,6 +43,4 @@ def create_app(DEBUG=True):
 	
 	from . import mark
 	app.register_blueprint(mark.bp)
-	
-	print(gettext(u'apy-del-link'))
 	return app

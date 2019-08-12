@@ -1,6 +1,7 @@
 import functools
 from flask import Blueprint, flash, g, redirect, session, url_for
 from flask import request as req
+from flask_babel import lazy_gettext
 from ppaa.db import get_db
 from ppaa.utils import objFromDict, complete_link, add_funcname_to_print
 from ppaa.auth import login_required
@@ -9,12 +10,12 @@ import traceback as tb
 
 ERR = dict(
 	DEL=dict(
-		LINK="link was removed",
-		TAG='tag was removed',
-		USER="Account was closed"
+		LINK=lazy_gettext('apy-del-link'),
+		TAG=lazy_gettext('apy-del-tag'),
+		USER=lazy_gettext('apy-del-account')
 	),
 	VERIFY=dict(
-		RESEND="email was resent"
+		RESEND=lazy_gettext('apy-verify-resend')
 	)
 )
 ERR = objFromDict(ERR)

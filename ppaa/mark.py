@@ -1,7 +1,7 @@
 import functools
 from flask import Blueprint, flash, g, redirect, render_template, session, url_for,abort
 from flask import request as req
-from flask_babel import gettext
+from flask_babel import gettext, lazy_gettext
 from ppaa.db import get_db
 from ppaa.utils import objFromDict, complete_link,add_funcname_to_print, available_username
 from ppaa.auth import login_required
@@ -12,8 +12,8 @@ from collections import Counter
 
 ERR = dict(
 	UNVALID=dict(
-		LINK="unvalid link",
-		VERIFY="please check the email to verify your account"
+		LINK=lazy_gettext("mpy-unvalid-link"),
+		VERIFY=lazy_gettext("mpy-verify")
 	)
 )
 ERR = objFromDict(ERR)

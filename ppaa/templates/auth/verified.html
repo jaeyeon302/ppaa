@@ -1,9 +1,9 @@
 {%extends 'base.html'%}
 {%block content %}
 <h1>
-	{{email}} verified
+	{{email}} {{_('verified')}}
 </h1>
 <h3>
-	<a href="{{url_for('mark.index')}}" class="btn deep-green-bg white-font">{{_('verfied-back')}}</a>
+	<a href="{{url_for('mark.index')}}" class="btn deep-green-bg white-font">{{_('verified-back')}}</a>
 </h3>
 {% endblock %}

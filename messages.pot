@@ -1,18 +1,17 @@
-# English translations for PROJECT.
+# Translations template for PROJECT.
 # Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-12 10:19+0000\n"
-"PO-Revision-Date: 2019-08-12 10:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
-"Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,220 +19,175 @@ msgstr ""
 
 #: ppaa/__init__.py:48 ppaa/mark.py:38
 msgid "done"
-msgstr "끝"
+msgstr ""
 
 #: ppaa/templates/404.html:4
-msgid 'notfound'
-msgstr '404! NOT FOUND! ~.~'
+msgid "notfound"
+msgstr ""
 
 #: ppaa/templates/base.html:32
-msgid 'b-logout'
-msgstr 'Log Out'
+msgid "b-logout"
+msgstr ""
 
 #: ppaa/templates/base.html:33
-msgid 'b-profile'
-msgstr 'Profile'
+msgid "b-profile"
+msgstr ""
 
 #: ppaa/templates/base.html:35 ppaa/templates/mark/index.html:30
-msgid 'b-login'
-msgstr 'Log In'
+msgid "b-login"
+msgstr ""
 
 #: ppaa/templates/base.html:36 ppaa/templates/mark/index.html:15
-msgid 'b-signup'
-msgstr 'Sign Up'
+msgid "b-signup"
+msgstr ""
 
 #: ppaa/templates/auth/authenticate.html:2
-msgid 'auth-title'
-msgstr "Welcomte to PPAA"
+msgid "auth-title"
+msgstr ""
 
 #: ppaa/templates/auth/authenticate.html:6
 msgid "auth-hi"
 msgstr ""
 
 #: ppaa/templates/auth/authenticate.html:6
-msgid 'auth-hi'
-msgstr "Hi"
+msgid "auth-nim"
+msgstr ""
 
 #: ppaa/templates/auth/authenticate.html:7
 msgid "auth-verify"
-msgstr "To verify your account, please click below link"
+msgstr ""
 
 #: ppaa/templates/auth/authenticate.html:8
-msgid 'auth-here'
-msgstr "Here"
+msgid "auth-here"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:9
-msgid 'conf-title'
-msgstr "Profile"
+msgid "conf-title"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:13 ppaa/templates/auth/login.html:9
 #: ppaa/templates/auth/register.html:17
 msgid "signup-email"
-msgstr "Email"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:17 ppaa/templates/auth/register.html:12
 msgid "signup-username"
-msgstr "Username"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:21
-msgid 'conf-oldpw'
-msgstr "Old password"
+msgid "conf-oldpw"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:25
-msgid 'conf-newpw'
-msgstr "New password"
+msgid "conf-newpw"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:29
 msgid "conf-newpw2"
-msgstr "Confirm new password"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:32
 msgid "conf-update"
-msgstr "Update"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:34
 msgid "conf-verify"
-msgstr "Resend the email to verify"
+msgstr ""
 
 #: ppaa/templates/auth/configure.html:36
 msgid "conf-deluser"
-msgstr "Delete my account"
+msgstr ""
 
 #: ppaa/templates/auth/login.html:6
-msgid 'login-title'
-msgstr "Log In"
+msgid "login-title"
+msgstr ""
 
 #: ppaa/templates/auth/login.html:13 ppaa/templates/auth/register.html:22
 msgid "signup-pw"
-msgstr "Password"
+msgstr ""
 
 #: ppaa/templates/auth/login.html:15 ppaa/templates/auth/register.html:23
 msgid "signup-pw-placeholder"
-msgstr "e.g., something only you know"
+msgstr ""
 
 #: ppaa/templates/auth/register.html:8
 msgid "signup-title"
-msgstr "Sign Up"
+msgstr ""
 
 #: ppaa/templates/auth/register.html:13
 msgid "signup-username-placeholder"
-msgstr "Can't change in future"
+msgstr ""
 
 #: ppaa/templates/auth/register.html:27
 msgid "signup-pw2"
-msgstr "Confirm password"
+msgstr ""
 
 #: ppaa/templates/auth/register.html:30
 msgid "signup-create"
-msgstr "Create new account"
+msgstr ""
 
 #: ppaa/templates/auth/verified.html:7
-msgid "verified-back"
-msgstr "Back to marks!"
+msgid "verfied-back"
+msgstr ""
 
 #: ppaa/templates/mark/already_inserted.html:6
-msgid 'already-inserted1'
-msgstr "is already marked in"
+msgid "already-inserted1"
+msgstr ""
 
 #: ppaa/templates/mark/already_inserted.html:8
-msgid 'already-inserted2'
-msgstr "'s bookmark" 
+msgid "already-inserted2"
+msgstr ""
 
 #: ppaa/templates/mark/already_inserted.html:11
-msgid 'back2link'
-msgstr "Back to link"
+msgid "back2link"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:9
-msgid 'i-phrase'
-msgstr "Easy way to bookmark on the public computer"
+msgid "i-phrase"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:10
-msgid 'i-description'
-msgstr "To bookmark,\nIt is uncomfortable that I log-in chrome on the public computer. Sending email is also tiresome.\nSo I made it - ppaa"
+msgid "i-description"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:15
 msgid "i-signup-detail"
-msgstr "Then, you can add link to your bookmark using below link-format in the address bar"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:18
 msgid "i-username"
-msgstr "username"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:18 ppaa/templates/mark/index.html:24
 #: ppaa/templates/mark/marks.html:34
 msgid "m-link"
-msgstr "link-to-bookmark"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:21
 msgid "i-ctrlL"
-msgstr "Cursor on the address bar"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:22
 msgid "i-ctrlA"
-msgstr "Select the link string"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:23
 msgid "i-ctrlX"
-msgstr "Cut the link you selected"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:24
 msgid "i-ctrlV"
-msgstr "Paste the link"
+msgstr ""
 
 #: ppaa/templates/mark/index.html:30
-msgid 'i-login-detail'
-msgstr "Then, you can see your bookmarks"
+msgid "i-login-detail"
+msgstr ""
 
 #: ppaa/templates/mark/marks.html:7
 msgid "m-marks"
-msgstr "bookmarks"
+msgstr ""
 
 #: ppaa/templates/mark/marks.html:29
 msgid "m-fill"
-msgstr "link-to-bookmark"
-
-############################ FOR PYTHON ##########################
-# mark.py
-msgid 'mpy-unvalid-link'
-msgstr "Unvalid link"
-msgid "mpy-verify"
-msgstr "Your account isn't verified yet. please check the email"
-
-# auth.py
-msgid 'aupy-required-username'
-msgstr "Username is required"
-msgid 'aupy-required-pw"
-msgstr "Password is required"
-msgid 'aupy-required-email'
-msgstr "Email is required"
-msgid 'aupy-wrong-pw'
-msgstr "Typo in password"
-msgid 'aupy-wrong-email'
-msgstr "Wrong format of email"
-msgid 'aupy-enrolled'
-msgstr "Already signed up'
-msgid 'aupy-success'
-msgstr "Signed up! please check the email for verification"
-msgid "aupy-login-incorrect'
-msgstr "Incorrect email or password"
-msgid 'aupy-verify-complete'
-msgstr "Verified"
-msgid 'aupy-verify-uncomplete'
-msgstr "Wrong access"
-msgid "aupy-conf-success"
-msgstr "Updated"
-msgid "aupy-conf-fail-pw"
-msgstr "Incorrect password"
-msgid "aupy-conf-fail"
-msgstr "0.0;; Bug in the server, Sorry"
-
-# api.py
-msgid "apy-del-link"
-msgstr "The link was deleted"
-msgid "apy-del-tag"
-msgstr "The tag was deleted"
-msgid "apy-del-account"
-msgstr "Account was closed"
-msgid "apy-verify-resend"
-msgstr "The email was re-sent to verify your account"
+msgstr ""
 
