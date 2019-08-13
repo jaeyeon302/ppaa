@@ -9,8 +9,13 @@ def create_app(DEBUG=True):
 	#setting for locale
 	@babel.localeselector
 	def get_locale():
-		supported_lang = ['ko','en']
-		return request.accept_languages.best_match(supported_lang)
+		korean = ['ko', 'ko-kr', 'ko-KR']
+		supported_lang = ['en']
+		supported_lang.extend(korean)
+		lang = request.accept_languages.best_match(supported_lang)
+		if lang in korean : return 'ko'
+		else: return lang
+		
 	
 	#update config
 	from . import config

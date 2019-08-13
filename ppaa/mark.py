@@ -35,6 +35,7 @@ def count_tag_table(tag_table):
 @bp.route('/<path:link>')
 @add_funcname_to_print
 def index(print,link=None):
+	print(req.accept_languages)
 	db = get_db()
 	if link is not None and '/' in link:
 		index = link.index('/')

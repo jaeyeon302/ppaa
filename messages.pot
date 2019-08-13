@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-12 10:19+0000\n"
+"POT-Creation-Date: 2019-08-13 09:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,10 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
-
-#: ppaa/__init__.py:48 ppaa/mark.py:38
-msgid "done"
-msgstr ""
 
 #: ppaa/templates/404.html:4
 msgid "notfound"
@@ -126,8 +122,12 @@ msgstr ""
 msgid "signup-create"
 msgstr ""
 
+#: ppaa/templates/auth/verified.html:4
+msgid "verified"
+msgstr ""
+
 #: ppaa/templates/auth/verified.html:7
-msgid "verfied-back"
+msgid "verified-back"
 msgstr ""
 
 #: ppaa/templates/mark/already_inserted.html:6

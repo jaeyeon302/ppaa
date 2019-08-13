@@ -149,7 +149,7 @@ msgstr "Easy way to bookmark on the public computer"
 
 #: ppaa/templates/mark/index.html:10
 msgid 'i-description'
-msgstr "To bookmark,\nIt is uncomfortable that I log-in chrome on the public computer. Sending email is also tiresome.\nSo I made it - ppaa"
+msgstr "To bookmark,\nIt is uncomfortable to log-in chrome on the public computer. Sending email is also tiresome. PPAA is useful to solve"
 
 #: ppaa/templates/mark/index.html:15
 msgid "i-signup-detail"
