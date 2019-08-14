@@ -42,7 +42,6 @@ def complete_link(link,query_string=None):
 	if query_string:
 		query_string = query_string.decode('utf-8')
 		link += "?{}".format(query_string)
-		print(link)
 	return link	
 	
 def validate_link(link):

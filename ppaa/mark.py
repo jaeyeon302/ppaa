@@ -5,6 +5,7 @@ from flask_babel import gettext, lazy_gettext
 from ppaa.db import get_db
 from ppaa.utils import objFromDict, complete_link,add_funcname_to_print, available_username
 from ppaa.auth import login_required
+from ppaa.og import add_ogtag, get_ogtag
 import traceback as tb
 
 from collections import Counter
@@ -35,7 +36,6 @@ def count_tag_table(tag_table):
 @bp.route('/<path:link>')
 @add_funcname_to_print
 def index(print,link=None):
-	print(req.accept_languages)
 	db = get_db()
 	if link is not None and '/' in link:
 		index = link.index('/')
@@ -67,11 +67,16 @@ def index(print,link=None):
 			print("Already_inserted / user_id:{}, link:{}".format(user['id'],link))
 			return render_template('mark/already_inserted.html',username=username,link=link)
 		else:
-			db.execute('INSERT INTO mark (user_id,link) VALUES (?,?)',(user['id'],link))
-			db.commit()
-			#TODO : send email 
-			print("Add link / user_id:{}, link:{}".format(user['id'],link))
-			return redirect(link)
+			try:
+				add_ogtag(link)
+				db.execute('INSERT INTO mark (user_id,link) VALUES (?,?)',(user['id'],link))
+				db.commit()
+				#TODO : send email 
+				print("Add link / user_id:{}, link:{}".format(user['id'],link))
+				return redirect(link)
+			except:
+				print(tb.format_exc())
+				abort(404)
 	
 	if link:abort(404)
 	if not g.user:
@@ -82,11 +87,13 @@ def index(print,link=None):
 		marks = db.execute('SELECT * FROM mark WHERE user_id = ? ORDER BY id DESC',(g.user['id'],)).fetchall()
 		tags = generate_tag_table(marks)
 		tag_counter = count_tag_table(tags)
+		og_tags = { mark: get_ogtag(mark['link']) for mark in marks }		
 		data = dict(
 			marks=marks,
 			counts=len(marks),
 			tags=tags,
 			tag_counter = tag_counter
+			og_tags = og_tags
 		)
 		print("Access marks / user_id:{}".format(g.user['id']))
 		return render_template('mark/marks.html',data=data)
