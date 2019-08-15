@@ -65,7 +65,7 @@ nav .menu{margin-left:auto;}
 	display:flex;flex-direction:column;
 	align-items:center;
 	margin-top:auto;margin-bottom:auto;
-	max-width:500px;
+	max-width:400px;
 	width:100%;
 }
 .account .logo{margin-bottom:3rem;}
