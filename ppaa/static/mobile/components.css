@@ -1,3 +1,16 @@
+@media (orientation:landscape){
+	.mark-box .columns{
+		columns:2!important;
+		padding:.375rem;
+	}
+	.columns .one-mark{
+		display:inline-block!important;
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+}
+
 /* change in thm.css for mobile */
 .lv1-font{font-size:1.5rem;}
 .lv2-font{font-size:1.2rem;}
