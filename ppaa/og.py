@@ -1,6 +1,7 @@
 import opengraph_py3 as og
 import msgpack as mg
 import ssl
+import traceback as tb
 
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
@@ -18,9 +19,13 @@ def add_ogtag(print,link,default_img=None):
 	print(req.__dict__)
 	context = ssl._create_unverified_context()
 	html = urlopen(req,context=context)
-	meta_og = og.OpenGraph(html=html.read(),scrape=True)
+	try:
+		meta_og = og.OpenGraph(html=html.read(),scrape=True)
+	except:
+		print(tb.format_exc())
+		meta_og = og.OpenGraph()
+		
 	html_obj = BeautifulSoup(html,'html.parser')
-	
 	if not meta_og.valid_attr('title'):meta_og.title = req.host
 	if not meta_og.valid_attr('image'):meta_og.image = default_img
 	if not meta_og.valid_attr('description'):meta_og.description = link

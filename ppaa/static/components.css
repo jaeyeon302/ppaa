@@ -88,6 +88,9 @@ input[type='text'],input[type='email'],input[type='password']{
 	width:100%;
 	overflow-wrap:break-word;
 }
+.link-container .title{
+	overflow-wrap:break-word;
+}
 
 .tag-box{
 	word-break:keep-all;

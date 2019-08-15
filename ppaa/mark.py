@@ -67,16 +67,13 @@ def index(print,link=None):
 			print("Already_inserted / user_id:{}, link:{}".format(user['id'],link))
 			return render_template('mark/already_inserted.html',username=username,link=link)
 		else:
-			try:
-				add_ogtag(link)
-				db.execute('INSERT INTO mark (user_id,link) VALUES (?,?)',(user['id'],link))
-				db.commit()
-				#TODO : send email 
-				print("Add link / user_id:{}, link:{}".format(user['id'],link))
-				return redirect(link)
-			except:
-				print(tb.format_exc())
-				abort(404)
+			add_ogtag(link)
+			db.execute('INSERT INTO mark (user_id,link) VALUES (?,?)',(user['id'],link))
+			db.commit()
+			#TODO : send email 
+			print("Add link / user_id:{}, link:{}".format(user['id'],link))
+			return redirect(link)
+
 	
 	if link:abort(404)
 	if not g.user:
