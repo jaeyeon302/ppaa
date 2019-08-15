@@ -4,7 +4,6 @@ import ssl
 import traceback as tb
 
 from urllib.request import Request, urlopen
-from bs4 import BeautifulSoup
 from ppaa.utils import objFromDict, add_funcname_to_print
 from ppaa.db import get_db
 
@@ -24,8 +23,6 @@ def add_ogtag(print,link,default_img=None):
 	except:
 		print(tb.format_exc())
 		meta_og = og.OpenGraph()
-		
-	html_obj = BeautifulSoup(html,'html.parser')
 	if not meta_og.valid_attr('title'):meta_og.title = req.host
 	if not meta_og.valid_attr('image'):meta_og.image = default_img
 	if not meta_og.valid_attr('description'):meta_og.description = link
