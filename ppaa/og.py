@@ -18,8 +18,8 @@ def add_ogtag(print,link,default_img=None):
 	req = Request(link,headers={'User-Agent':'Mozilla/5.0'})
 	print(req.__dict__)
 	context = ssl._create_unverified_context()
-	html = urlopen(req,context=context)
 	try:
+		html = urlopen(req,context=context,timeout=2)
 		meta_og = og.OpenGraph(html=html.read(),scrape=True)
 	except:
 		print(tb.format_exc())
