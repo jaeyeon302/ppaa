@@ -12,7 +12,7 @@ a{color:inherit;text-decoration:inherit;font-size:inherit;}
 }
 
 .like-input-layout,input[type='text'],input[type='email'],input[type='password']{
-	padding:.375rem .375rem;min-width:15em;
+	padding:.375rem .375rem;
 }
 input[type='text'],input[type='email'],input[type='password']{
 	border-style:solid;
@@ -77,10 +77,18 @@ input[type='text'],input[type='email'],input[type='password']{
 .account{
 	padding:1.2rem 1rem;
 }
+
 .account .btn{
 	align-self:flex-end;
 	margin-right:0rem;
 }
+.link-container .description{
+	text-align:left;
+	margin-bottom:.2rem;
+	width:100%;
+	overflow-wrap:break-word;
+}
+
 .tag-box{
 	word-break:keep-all;
 }

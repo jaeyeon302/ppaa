@@ -71,19 +71,19 @@ msgstr "이메일"
 
 #: ppaa/templates/auth/configure.html:17 ppaa/templates/auth/register.html:12
 msgid "signup-username"
-msgstr "사용자 이름"
+msgstr "사용자\n이름"
 
 #: ppaa/templates/auth/configure.html:21
 msgid 'conf-oldpw'
-msgstr "옛 비밀번호"
+msgstr "옛\n비밀번호"
 
 #: ppaa/templates/auth/configure.html:25
 msgid 'conf-newpw'
-msgstr "새 비밀번호"
+msgstr "새\n비밀번호"
 
 #: ppaa/templates/auth/configure.html:29
 msgid 'conf-newpw2'
-msgstr "새 비밀번호 확인"
+msgstr "새 비밀번호\n확인"
 
 #: ppaa/templates/auth/configure.html:32
 msgid 'conf-update'

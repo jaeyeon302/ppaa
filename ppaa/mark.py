@@ -87,12 +87,12 @@ def index(print,link=None):
 		marks = db.execute('SELECT * FROM mark WHERE user_id = ? ORDER BY id DESC',(g.user['id'],)).fetchall()
 		tags = generate_tag_table(marks)
 		tag_counter = count_tag_table(tags)
-		og_tags = { mark: get_ogtag(mark['link']) for mark in marks }		
+		og_tags = { mark: get_ogtag(mark['link']) for mark in marks }
 		data = dict(
 			marks=marks,
 			counts=len(marks),
 			tags=tags,
-			tag_counter = tag_counter
+			tag_counter = tag_counter,
 			og_tags = og_tags
 		)
 		print("Access marks / user_id:{}".format(g.user['id']))
@@ -114,13 +114,14 @@ def tag_index(print):
 				).fetchall()
 	all_tags = generate_tag_table(all_tags)
 	tag_counter = count_tag_table(all_tags)
-
+	og_tags = { mark: get_ogtag(mark['link']) for mark in marks }
 	data = dict(
 		marks=marks,
 		counts=len(marks),
 		tags=tags,
 		target_tag = tag,
-		tag_counter = tag_counter
+		tag_counter = tag_counter,
+		og_tags = og_tags
 	)
 	print("Tag selected / tag:{}, user_id:{}".format(tag,g.user['id']))
 	return render_template('mark/marks.html',data=data)

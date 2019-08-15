@@ -12,7 +12,7 @@ DEFAULT_IMG = "https://lh3.googleusercontent.com/evp44qqJ5gKPuTUOCY2Ma7GYfgQQLa2
 
 
 @add_funcname_to_print
-def add_ogtag(print,link):
+def add_ogtag(print,link,default_img=None):
 	db = get_db()
 	req = Request(link,headers={'User-Agent':'Mozilla/5.0'})
 	print(req.__dict__)
@@ -22,7 +22,7 @@ def add_ogtag(print,link):
 	html_obj = BeautifulSoup(html,'html.parser')
 	
 	if not meta_og.valid_attr('title'):meta_og.title = req.host
-	if not meta_og.valid_attr('image'):meta_og.image = DEFAULT_IMG
+	if not meta_og.valid_attr('image'):meta_og.image = default_img
 	if not meta_og.valid_attr('description'):meta_og.description = link
 	
 	bin_og = mg.packb(meta_og,use_bin_type=True)
@@ -32,6 +32,7 @@ def add_ogtag(print,link):
 	else:
 		db.execute('INSERT INTO meta (link,bin_meta)VALUES(?,?)',(link,bin_og))
 	db.commit()
+	print("refresh og tag / link:{}".format(link))
 	return True
 	
 @add_funcname_to_print

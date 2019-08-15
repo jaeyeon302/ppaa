@@ -1,8 +1,8 @@
 @import url('/static/thm.css');
 @import url('/static/layout.css');
 @import url('/static/components.css');
-@import url('/static/mobile/components.css') (min-width: 320px) and (max-width:763px);
-@import url('/static/desktop/components.css') (min-width:764px);
+@import url('/static/mobile/components.css') (min-width: 320px) and (max-width:767px);
+@import url('/static/desktop/components.css') (min-width:768px);
 
 /* 
   ##Device = Desktops

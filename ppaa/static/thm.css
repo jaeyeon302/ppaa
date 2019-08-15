@@ -43,7 +43,7 @@ body{font-family:'ON-IGothic',sans-serif;}
 /* font size */
 .lv1-font{font-size:2rem;}
 .lv2-font{font-size:1.5rem;}
-.lv3-font{font-size:1rem;}
+.lv3-font{font-size:1.2rem; font-weight:bold;}
 .lv4-font{font-size:0.8rem;}
 
 
