@@ -1,4 +1,4 @@
-import urllib.request as req
+import urllib.request as request
 from urllib import parse
 import traceback as tb
 from ppaa.config import mail_config
@@ -47,7 +47,7 @@ def complete_link(link,query_string=None):
 def validate_link(link):
 	res = None
 	try:
-		url = req.urlopen(link)
+		url = request.urlopen(link)
 		if url.getcode() < 400: res=True
 		else: res=False
 	except:
