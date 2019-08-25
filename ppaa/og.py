@@ -26,7 +26,7 @@ def add_ogtag(print,link,default_img=None):
 	if not meta_og.valid_attr('title'):meta_og.title = req.host
 	if not meta_og.valid_attr('image'):meta_og.image = default_img
 	if not meta_og.valid_attr('description'):meta_og.description = link
-	
+	meta_og.image = meta_og.image.replace('https','http')
 	bin_og = mg.packb(meta_og,use_bin_type=True)
 	already_inserted = db.execute('SELECT id FROM meta WHERE link=?',(link,)).fetchone()
 	if already_inserted:
