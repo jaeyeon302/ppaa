@@ -2,7 +2,7 @@ from flask import Flask, g,render_template, request
 from flask_babel import Babel, lazy_gettext, gettext
 import os
 
-def create_app(DEBUG=True):
+def create_app(DEBUG=True,proxy_fix=False):
 	app = Flask(__name__,instance_relative_config=True)
 	babel = Babel(app)
 	
@@ -49,3 +49,8 @@ def create_app(DEBUG=True):
 	from . import mark
 	app.register_blueprint(mark.bp)
 	return app
+
+	if proxy_fix:
+		from werkzeug.middleware.proxy_fix import ProxyFix
+		app = ProxyFix(app, x_for=1,x_host=1)
+		

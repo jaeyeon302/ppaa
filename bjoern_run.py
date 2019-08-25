@@ -11,7 +11,7 @@ if __name__ == "__main__":
     ip = default_ip
     port = default_port
     #create app
-    app = create_app(DEBUG=False)
+    app = create_app(DEBUG=False,proxy_fix=True)
     print("----------------new start----------------")
     print("server start on {}".format(current_path))
     bjoern.run(app,ip,port)
