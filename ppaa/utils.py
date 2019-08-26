@@ -97,5 +97,6 @@ def add_ipaddr_to_stdout():
 	
 def set_print_format():
 	add_timestamp_to_stdout()
-	add_ipaddr_to_stdout()
+	#remove ipaddr from log
+	#add_ipaddr_to_stdout() 
 	
