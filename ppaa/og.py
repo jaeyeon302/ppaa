@@ -28,22 +28,14 @@ def add_ogtag(print,link,default_img=None):
 	if not meta_og.valid_attr('image'):meta_og.image = default_img
 	if not meta_og.valid_attr('description'):meta_og.description = link
 	
-	if meta_og.image is not None and not meta_og.image.startswith('http'):
-		root = req.host + req.selector[:req.selector.rfind('/')]
-		imgsrc="{}://{}/{}".format(req.type,root,meta_og.image)
-		print(imgsrc)
-		if validate_link(imgsrc):
-			meta_og.image = imgsrc
-		else:
+	print(meta_og)
+	if meta_og.image is not None and not meta_og.image.startswith('http') and meta_og.image != "":
+		if meta_og.image.startswith('/'):
 			root = req.host
-			imgsrc = "{}://{}/{}".format(req.type,root,meta_og.image)
-			if validate_link(imgsrc):
-				meta_og.image = imgsrc
-			else:
-				meta_og.image = default_img
-			
-		print(req.host)
-		print(meta_og)
+		else:
+			root = req.host + req.selector[:req.selector.rfind('/')]
+		imgsrc = "{}://{}/{}".format('http',root,meta_og.image)
+		meta_og.image = imgsrc
 		
 	bin_og = mg.packb(meta_og,use_bin_type=True)
 	already_inserted = db.execute('SELECT id FROM meta WHERE link=?',(link,)).fetchone()
